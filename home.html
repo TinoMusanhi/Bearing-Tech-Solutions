@@ -1,0 +1,220 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bearing Tech Solutions Pvt Ltd</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    /* ------------------------------------------------------------
+   THEME COLORS
+------------------------------------------------------------- */
+:root {
+    --white: #ffffff;
+    --light-grey: #f2f2f2;
+    --medium-grey: #d9d9d9;
+    --dark-grey: #555555;
+    --black: #111111;
+}
+
+/* ------------------------------------------------------------
+   GLOBAL RESET
+------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--black);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+/* Global container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ------------------------------------------------------------
+   SECTION SPACING
+------------------------------------------------------------- */
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.section-line {
+    width: 60px;
+    height: 3px;
+    background: var(--dark-grey);
+    margin: 0 auto 40px;
+}
+
+/* ------------------------------------------------------------
+   BUTTONS
+------------------------------------------------------------- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+
+.btn:hover {
+    background-color: var(--dark-grey);
+}
+
+/* Outline button */
+.btn-outline {
+    padding: 12px 28px;
+    border: 2px solid var(--black);
+    color: var(--black);
+    background: transparent;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: .3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* ------------------------------------------------------------
+   NAVIGATION BAR
+------------------------------------------------------------- */
+header {
+    width: 100%;
+    background-color: var(--white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* Logo */
+.logo img {
+    height: 55px;
+     width: auto;
+    object-fit: contain;
+}
+
+/* Desktop Menu */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    font-size: 15px;
+}
+
+nav ul li a:hover {
+    color: var(--dark-grey);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------
+   MOBILE NAVIGATION
+------------------------------------------------------------- */
+@media(max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    nav.active ul {
+        display: block;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    nav.active ul li {
+        margin-bottom: 16px;
+    }
+}
+  </style>
+</head>
+<body>
+    <header>
+    <div class="container navbar">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="images/logo.png" alt="Bearing Tech Solutions Logo">
+        </div>
+
+        <!-- NAV LINKS -->
+        <nav id="navMenu">
+            <ul>
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Icon -->
+        <div class="mobile-menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </div>
+  </header>
+</body>
+</html>
