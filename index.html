@@ -140,7 +140,7 @@ header {
 
 /* Logo */
 .logo img {
-    height: 55px;
+    height: 70px;
      width: auto;
     object-fit: contain;
 }
@@ -235,7 +235,7 @@ body {
 .hero {
     position: relative;
     height: 85vh;
-    background: url('images/hero-industrial.jpg') center/cover no-repeat;
+    background: url('images/hero section background.png') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -297,6 +297,200 @@ body {
         gap: 15px;
     }
 }
+/* ------------------------------------------------------------
+   ABOUT SECTION (COMPANY OVERVIEW)
+------------------------------------------------------------- */
+.about {
+    padding: 100px 0;
+}
+
+.about .section-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.about .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3px;
+    background: var(--dark-grey);
+    border-radius: 3px;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--dark-grey);
+    max-width: 500px;
+}
+
+/* ABOUT SECTION — FIXED CIRCLE IMAGES */
+.about-images {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Large circle */
+.img-large {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* ensures full fill */
+    object-position: center; /* centers the subject */
+}
+
+/* Small overlapping circle */
+.img-small {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    border: 6px solid var(--white);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.img-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center;
+}
+
+/* Responsive behavior */
+@media(max-width: 768px) {
+
+    .about-images {
+        margin-top: 40px;
+    }
+
+    .img-large {
+        width: 250px;
+        height: 250px;
+    }
+
+    .img-small {
+        width: 130px;
+        height: 130px;
+        bottom: -30px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+}
+/* ------------------------------------------------------------
+   SERVICES SECTION
+------------------------------------------------------------- */
+.services-section {
+    background: var(--light-grey);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: fadeUp .8s ease forwards;
+}
+
+.service-card:nth-child(2) { animation-delay: .2s; }
+.service-card:nth-child(3) { animation-delay: .4s; }
+.service-card:nth-child(4) { animation-delay: .6s; }
+
+.service-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    opacity: 0.15;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------------------
+   PRODUCT GRID
+------------------------------------------------------------- */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    transition: .3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    margin: 15px 0 5px;
+    font-weight: 600;
+}
+
+.product-card p {
+    color: var(--dark-grey);
+    margin-bottom: 20px;
+}
 
   </style>
 </head>
@@ -307,7 +501,7 @@ body {
 
         <!-- LOGO -->
         <div class="logo">
-            <img src="images/logo.png" alt="Bearing Tech Solutions Logo">
+            <img src="images/BTS Logo.png" alt="Bearing Tech Solutions Logo">
         </div>
 
         <!-- NAV LINKS -->
@@ -339,6 +533,123 @@ body {
         <div class="hero-buttons">
             <a href="products.html" class="btn">View Products</a>
             <a href="contact.html" class="btn-outline">Get a Quote</a>
+        </div>
+    </div>
+</section>
+ <!-- ABOUT SECTION -->
+<section class="about">
+    <div class="container">
+
+        <!-- Section Title -->
+        <h2 class="section-title">Company Overview</h2>
+
+        <div class="about-content">
+            
+            <div class="about-text">
+                <p>
+                    BEARING TECH SOLUTIONS (BTS) PVT LTD is a leading supplier of industrial components 
+                    and solutions based in Aspindale, Harare, Zimbabwe. We are committed to providing 
+                    our clients with exceptional service, top-tier products, and expert technical support.
+                </p>
+            </div>
+
+            <div class="about-images">
+                <div class="img-large">
+                    <img src="images/p1_About_Section.png" alt="About BTS">
+                </div>
+                <div class="img-small">
+                    <img src="images/p2_About_Section.png" alt="Industrial Components">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- SERVICES SECTION -->
+<section class="services-section">
+    <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="section-line"></div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <span class="service-number">01</span>
+                <h3>Technical Expertise</h3>
+                <p>
+                    Our team and partners have deep technical knowledge. We help you with
+                    product selection, applications, troubleshooting, and achieving optimal performance.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">02</span>
+                <h3>Ethical Sourcing</h3>
+                <p>
+                    All items are sourced strictly from reputable, authorized distributors
+                    to guarantee authenticity and reliability.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">03</span>
+                <h3>Consignment Stock</h3>
+                <p>
+                    Reduce upfront costs by keeping critical components available on-site.
+                    We manage stock levels so you always have essential parts.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">04</span>
+                <h3>Vendor Managed Inventory (VMI)</h3>
+                <p>
+                    BTS proactively manages your inventory to ensure the right parts
+                    are available at the right time — minimizing downtime.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- PRODUCTS SECTION -->
+<section class="products-section">
+    <div class="container">
+        <h2 class="section-title">Our Product Range</h2>
+        <div class="section-line"></div>
+
+        <div class="products-grid">
+
+            <div class="product-card">
+                <img src="images/BEA" alt="Bearings">
+                <h3>Bearings</h3>
+                <p>NSK, NTN, SKF, Timken</p>
+            </div>
+
+            <div class="product-card">
+                <img src="images/power-transmission.jpg" alt="Power Transmission">
+                <h3>Power Transmission</h3>
+                <p>Fenner belts, pulleys, chains & drives</p>
+            </div>
+
+            <div class="product-card">
+                <img src="images/conveyor.jpg" alt="Conveyor Belting">
+                <h3>Conveyor Belting</h3>
+                <p>Belting, joining solutions & accessories</p>
+            </div>
+
+            <div class="product-card">
+                <img src="images/motors.jpg" alt="Motors">
+                <h3>Electric & Geared Motors</h3>
+                <p>Electric motors, geared units, VSDs</p>
+            </div>
+
+            <div class="product-card">
+                <img src="images/seals.jpg" alt="Seals">
+                <h3>Oil Seals & Gaskets</h3>
+                <p>Rubber seals, gaskets, insertion rubber</p>
+            </div>
+
         </div>
     </div>
 </section>
