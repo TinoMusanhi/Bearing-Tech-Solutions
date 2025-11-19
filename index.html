@@ -66,6 +66,17 @@ section {
     margin-bottom: 10px;
 }
 
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--dark-grey);
+}
+
 .section-line {
     width: 60px;
     height: 3px;
@@ -148,9 +159,39 @@ nav ul li a {
     font-size: 15px;
 }
 
+/* Hover underline animation */
+nav ul li a {
+    position: relative;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--black);
+    transition: width .3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
 nav ul li a:hover {
     color: var(--dark-grey);
 }
+
+/* Active page highlight */
+nav ul li a.active {
+    color: var(--dark-grey);
+}
+
+nav ul li a.active::after {
+    width: 100%;
+}
+
 
 /* Mobile Menu Button */
 .mobile-menu-btn {
@@ -170,27 +211,27 @@ nav ul li a:hover {
     .mobile-menu-btn {
         display: block;
     }
+/* Smooth mobile dropdown */
+nav ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease;
+}
 
-    nav.active ul {
-        display: block;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        text-align: center;
-        padding: 20px 0;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    nav.active ul li {
-        margin-bottom: 16px;
-    }
+nav.active ul {
+    max-height: 300px;
+    padding: 20px 0;
+    background: var(--white);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+     }
+body {
+    padding-top: 90px; /* ensures hero section is visible */
 }
   </style>
 </head>
 <body> 
-    
+
     <header>
     <div class="container navbar">
 
