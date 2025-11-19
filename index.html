@@ -228,6 +228,77 @@ nav.active ul {
 body {
     padding-top: 90px; /* ensures hero section is visible */
 }
+
+     /* ------------------------------------------------------------
+   HERO SECTION
+------------------------------------------------------------- */
+.hero {
+    position: relative;
+    height: 85vh;
+    background: url('images/hero-industrial.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    margin-top: 90px; /* prevents navbar overlap */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: #eaeaea;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
   </style>
 </head>
 <body> 
@@ -256,8 +327,39 @@ body {
             <i class="fa-solid fa-bars"></i>
         </div>
 
+        <!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        <h1>Reliable Industrial Components for Every Sector</h1>
+        <p>Your trusted partner in bearings, power transmission parts, seals, and engineering supplies.</p>
+
+        <div class="hero-buttons">
+            <a href="products.html" class="btn">View Products</a>
+            <a href="contact.html" class="btn-outline">Get a Quote</a>
+        </div>
+    </div>
+</section>
+ 
+       <!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        <h1>Reliable Industrial Components for Every Sector</h1>
+        <p>Your trusted partner in bearings, power transmission parts, seals, and engineering supplies.</p>
+
+        <div class="hero-buttons">
+            <a href="products.html" class="btn">View Products</a>
+            <a href="contact.html" class="btn-outline">Get a Quote</a>
+        </div>
+    </div>
+</section>
+
     </div>
   </header>
+
      <script>
 
       // Mobile Menu Toggle
