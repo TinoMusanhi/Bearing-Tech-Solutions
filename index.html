@@ -411,7 +411,7 @@ body {
 ------------------------------------------------------------- */
 .services-section {
     position: relative;
-    background: url('images/OUR_SERVICES_BACKGROUND.jpg') center/cover no-repeat;
+    background: url('images/OUR_SERVICES_BACKGROUND(1).jpg') center/cover no-repeat;
     padding: 100px 0;
     color: #fff;
     overflow: hidden;
@@ -509,6 +509,107 @@ body {
         transform: translateY(0) scale(1);
     }
 }
+
+/* ------------------------------------------------------------
+   WHY CHOOSE BTS SECTION
+------------------------------------------------------------- */
+.why-bts-section {
+    background: #f7f8fa;
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.section-line {
+    width: 80px;
+    height: 4px;
+    background: #ff6f00;
+    margin: 0 auto 50px;
+    border-radius: 2px;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+.why-card {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    padding: 50px 20px 20px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* Arcs */
+.arc {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 40px;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+    border: 3px solid;
+    border-bottom: none;
+}
+
+.arc-orange { border-color: #ff6f00; }
+.arc-gray { border-color: #999; }
+
+/* Icons */
+.why-icon {
+    font-size: 2.5rem;
+    color: #ff6f00;
+    margin-bottom: 15px;
+}
+
+.why-card:nth-child(even) .why-icon {
+    color: #999;
+}
+
+.why-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.why-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .why-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* Responsive for tablets & mobile */
 @media (max-width: 1200px) {
@@ -739,6 +840,53 @@ body {
         </div>
     </div>
 </section>
+
+<section class="why-bts-section">
+    <div class="container">
+        <h2 class="section-title">Why Choose BTS?</h2>
+        <div class="section-line"></div>
+
+        <div class="why-grid">
+
+            <div class="why-card">
+                <div class="arc arc-orange"></div>
+                <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Trusted Supplier</h3>
+                <p>Partnering with BTS ensures a reliable supplier that delivers exceptional value every time.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="arc arc-gray"></div>
+                <div class="why-icon"><i class="fas fa-cogs"></i></div>
+                <h3>Technical Expertise</h3>
+                <p>Our team offers unmatched technical expertise to help your operations run smoothly and efficiently.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="arc arc-orange"></div>
+                <div class="why-icon"><i class="fas fa-boxes"></i></div>
+                <h3>Comprehensive Product Range</h3>
+                <p>We provide a wide range of high-quality products to meet your industrial needs.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="arc arc-gray"></div>
+                <div class="why-icon"><i class="fas fa-industry"></i></div>
+                <h3>Flexible Inventory</h3>
+                <p>Our inventory management solutions ensure you always have the right parts at the right time.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="arc arc-orange"></div>
+                <div class="why-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Exceptional Support</h3>
+                <p>We offer continuous support and guidance to make sure your operations are always optimized.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
      <script>
 
       // Mobile Menu Toggle
