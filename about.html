@@ -404,93 +404,199 @@ body {
 }
 
 /* ------------------------------------------------------------
-   SMARTART GLASS CYCLE SECTION (VISIBLE GLASS EFFECT)
+   CYCLE SECTION - Background + Overlay
 ------------------------------------------------------------- */
-
-.advantage-section {
-    position: relative;
-    padding: 120px 0;
+.cycle-section {
+  position: relative;
+  padding: 100px 0;
+  background: url('images/Why_choose_us.jpg') center/cover no-repeat;
+  background-attachment: fixed; /* keeps image fixed while section scrolls */
+  background-size: cover;
+  z-index: 1;
+  overflow: hidden;
 }
 
-/* Strong background to make glass visible */
-.advantage-bg {
-    position: absolute;
-    inset: 0;
-    background: url("https://images.unsplash.com/photo-1581092160562-040fb4a6ec72?auto=format&fit=crop&w=1600&q=80")
-        center/cover no-repeat;
-    filter: brightness(0.45); /* darken bg so glass shows properly */
-    z-index: 0;
+/* Dark overlay for readability */
+.cycle-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55); /* darker for better text contrast */
+  z-index: 1;
 }
 
-/* Glass layer on top of background */
-.advantage-section .content {
-    position: relative;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.25);
-    padding: 40px;
-    border-radius: 20px;
-    backdrop-filter: blur(18px);     /* REAL FROSTED GLASS */
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+/* Container sits above overlay */
+.cycle-section .container {
+  position: relative;
+  z-index: 2;
+  text-align: horizontal;
 }
 
-/* SmartArt Layout */
-.advantage-cycle {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+/* Section line decoration */
+.cycle-section .section-line {
+  width: 80px;
+  height: 4px;
+  background: #ff6f00;
+  margin: 20px auto 50px;
+  border-radius: 2px;
 }
 
-/* SmartArt items */
-.advantage-item {
-    background: rgba(255, 255, 255, 0.35);
-    padding: 25px;
-    text-align: center;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: 0.3s ease;
+/* Container for all cycle items */
+.cycle-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px; /* spacing between items */
 }
 
-/* Hover pop */
-.advantage-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+/* Each cycle item */
+.cycle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 260px; /* uniform text block width */
+  text-align: center;
 }
 
-/* Icons */
-.advantage-icon {
-    font-size: 45px;
-    margin-bottom: 10px;
-    color: white;
+/* Circle element */
+.cycle-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.7); /* slightly transparent for backdrop filter */
+  border: 4px solid var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  color: var(--black);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(5px);
+  margin-bottom: 15px;
 }
 
-/* Titles */
-.advantage-item h3 {
-    color: white;
-    margin-bottom: 10px;
+/* Hover effect */
+.cycle-circle:hover {
+  transform: scale(1.12);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  background: rgba(255,255,255,0.95);
 }
 
 /* Text */
-.advantage-item p {
-    color: #f5f5f5;
-    line-height: 1.6;
+.cycle-item h3 {
+  font-size: 1.2rem;
+  color: #fff; /* stands out on dark overlay */
+  margin: 5px 0 8px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .advantage-cycle {
-        grid-template-columns: 1fr 1fr;
+.cycle-item p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+}
+
+/* Responsive: wrap items on medium screens */
+@media (max-width: 992px) {
+  .cycle-container {
+    justify-content: center;
+  }
+}
+
+/* Responsive: stack items on small screens */
+@media (max-width: 768px) {
+  .cycle-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cycle-item {
+    max-width: 90%; /* allow more space for text */
+  }
+}
+
+/* ------------------------------------------------------------
+   OUR PARTNERS SECTION - 4 PER ROW
+------------------------------------------------------------- */
+.partners-section {
+    position: relative;
+    padding: 80px 0;
+    background: #ffffff; /* white background */
+    color: var(--black);
+}
+
+.partners-section .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.partners-section .section-line {
+    width: 80px;
+    height: 4px;
+    background: #ff6f00; /* theme accent color */
+    margin: 20px auto 50px;
+    border-radius: 2px;
+}
+
+/* Grid layout for partner logos: 4 per row */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* exactly 4 logos per row */
+    gap: 30px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Individual partner card */
+.partner-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-card a {
+    text-decoration: none;
+    display: block;
+    color: var(--black);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.partner-card img {
+    width: 100px; /* fixed logo size for uniformity */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.partner-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Responsive: 2 per row on tablets, 1 per row on mobile */
+@media (max-width: 992px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 600px) {
-    .advantage-cycle {
+@media (max-width: 576px) {
+    .partners-grid {
         grid-template-columns: 1fr;
     }
 }
+
 
 /* ------------------------------------------------------------
    CTA SECTION
@@ -820,41 +926,59 @@ body {
     </div>
 </section>
 
-<section class="advantage-section">
-    <div class="advantage-bg"></div>
+<!-- OUR COMPETITIVE ADVANTAGE SECTION -->
+<section class="cycle-section">
+  <div class="container">
+    <h2 class="section-title">Our Competitive Advantage</h2>
+    <div class="section-line"></div>
 
-    <div class="container content">
-        <h2 class="section-title">Our Competitive Advantage</h2>
-        <div class="section-line"></div>
+    <div class="cycle-container">
 
-        <div class="advantage-cycle">
+      <div class="cycle-item">
+        <div class="cycle-circle">01</div>
+        <h3>Unmatched Quality</h3>
+        <p>We prioritize supplying reliable and long-lasting components from industry-leading brands, maximizing your equipment uptime and reducing maintenance costs.</p>
+      </div>
 
-            <div class="advantage-item">
-                <div class="advantage-icon"><i class="fa-solid fa-shield"></i></div>
-                <h3>Unmatched Quality</h3>
-                <p>Reliable, long-lasting industrial components from leading global brands.</p>
-            </div>
+      <div class="cycle-item">
+        <div class="cycle-circle">02</div>
+        <h3>Technical Support</h3>
+        <p>Our knowledgeable team is readily available to answer your questions, provide technical guidance, and help you find the most suitable solutions for your specific needs. Field Services capability with technically qualified and experienced professionals.</p>
+      </div>
 
-            <div class="advantage-item">
-                <div class="advantage-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                <h3>Technical Support</h3>
-                <p>Expert guidance, troubleshooting, and field service capability.</p>
-            </div>
+      <div class="cycle-item">
+        <div class="cycle-circle">03</div>
+        <h3>Ethical Commitment</h3>
+        <p>We operate with integrity and transparency, ensuring you receive genuine products sourced through responsible channels.</p>
+      </div>
 
-            <div class="advantage-item">
-                <div class="advantage-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-                <h3>Ethical Commitment</h3>
-                <p>We operate with integrity and supply only genuine, authorized products.</p>
-            </div>
+      <div class="cycle-item">
+        <div class="cycle-circle">04</div>
+        <h3>Tailored Solutions</h3>
+        <p>We work closely with you to develop personalized inventory management strategies that optimize your operations.</p>
+      </div>
 
-            <div class="advantage-item">
-                <div class="advantage-icon"><i class="fa-solid fa-gear"></i></div>
-                <h3>Tailored Solutions</h3>
-                <p>Customized inventory strategies designed around your operations.</p>
-            </div>
-
-        </div>
     </div>
+  </div>
+</section>
+
+<!-- OUR PARTNERS SECTION -->
+<section class="partners-section">
+  <div class="container">
+    <h2 class="section-title">Our Partners</h2>
+    <div class="section-line"></div>
+
+    <div class="partners-grid">
+      <div class="partner-card"><a href="https://www.timken.com/" target="_blank" rel="noopener">Timken</a></div>
+      <div class="partner-card"><a href="https://fptgroup.com/en/" target="_blank" rel="noopener">Fenner Power Transmission</a></div>
+      <div class="partner-card"><a href="https://www.ntnglobal.com/en/index.html" target="_blank" rel="noopener">NTN</a></div>
+      <div class="partner-card"><a href="https://www.trbearings.com/" target="_blank" rel="noopener">TR (THK / TR Bearings)</a></div>
+      <div class="partner-card"><a href="https://www.ntn-snr.com/" target="_blank" rel="noopener">SNR</a></div>
+      <div.class="partner-card"><a href="https://www.skf.com/group" target="_blank" rel="noopener">SKF</a></div>
+      <div class="partner-card"><a href="https://www.nsk.com/" target="_blank" rel="noopener">NSK / RHP</a></div>
+      <div class="partner-card"><a href="https://www.sumitomotool.com/en/industries/aerospace/for-gear-bearing" target="_blank" rel="noopener">Sumitomo</a></div>
+    </div>
+  </div>
 </section>
 
 <!-- CTA SECTION -->
