@@ -741,6 +741,134 @@ body {
     color: #fff;
 }
 
+/* ===============================================
+   FOOTER SECTION (White, Modern, Clean)
+================================================ */
+.footer-section {
+    background: #ffffff;
+    padding: 60px 0 20px;
+    border-top: 1px solid #e5e5e5;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-logo {
+    width: 140px;
+    margin-bottom: 15px;
+}
+
+.footer-desc {
+    color: #555;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #222;
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: "";
+    width: 40px;
+    height: 3px;
+    background: #ff6f00;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    border-radius: 2px;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.footer-list a {
+    color: #444;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-list a:hover {
+    color: #ff6f00;
+}
+/* ===============================================
+   SOCIAL MEDIA ICONS
+================================================ */
+.footer-social {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 8px;
+    background: #ff6f00;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.footer-social a:hover {
+    background: #1a4a6e;  /* theme teal/dark blue */
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+
+/* COPYRIGHT AREA */
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+}
+
 /* Responsive adjustments */
 @media(max-width: 768px) {
     .cta-content h2 {
@@ -782,7 +910,7 @@ body {
         <!-- NAV LINKS -->
         <nav id="navMenu">
             <ul>
-                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="blog.html">Blog</a></li>
@@ -1013,6 +1141,70 @@ body {
         </div>
     </div>
 </section>
+<!-- ================= FOOTER ================= -->
+<footer class="footer-section">
+    <div class="container footer-container">
+
+        <!-- LOGO + ABOUT -->
+        <div class="footer-col footer-branding">
+            <img src="images/BTS Logo.png" alt="BTS Logo" class="footer-logo">
+
+            <p class="footer-desc">
+                We invite you to contact us today to discuss your specific requirements and learn how BTS can become 
+                your trusted partner for all your industrial component needs.
+            </p>
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="footer-list">
+                <li><strong>Address:</strong> 1171 Aspindale, Harare, Zimbabwe</li>
+                <li><strong>Phone:</strong> +263 777 671 014 / +263 773 112 847</li>
+                <li><strong>Email:</strong> sales.bearingtech@outlook.com</li>
+                <li><strong>Facebook:</strong> bearingtech</li>
+                <li><strong>Location:</strong> Aspindale, Harare</li>
+            </ul>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="why-choose.html">Why Choose Us</a></li>
+            </ul>
+        </div>
+
+        <!-- PRODUCTS & SERVICES -->
+        <div class="footer-col">
+            <h4>Products & Services</h4>
+            <ul class="footer-list">
+                <li><a href="products.html">Bearings</a></li>
+                <li><a href="products.html">Seals</a></li>
+                <li><a href="products.html">Lubricants</a></li>
+                <li><a href="services.html">Inventory Management</a></li>
+                <li><a href="services.html">Technical Support</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+<div class="footer-social">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+        <p>© 2025 Bearing Tech Solutions (BTS). All Rights Reserved.</p>
+    </div>
+</footer>
 
      <script>
 
