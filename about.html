@@ -326,6 +326,172 @@ body {
         }
     }
 
+    /* ----------------------------------------------
+   MISSION • VISION • VALUES
+------------------------------------------------*/
+.mvv-section {
+    padding: 90px 0;
+    background: url('images/Bearing tech solutions logo.jpeg') center/cover no-repeat;
+    position: relative;
+}
+
+.mvv-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.6); /* glassy effect */
+    backdrop-filter: blur(5px);
+}
+
+.mvv-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.mvv-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.mvv-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.mvv-icon {
+    font-size: 40px;
+    color: var(orange);
+    margin-bottom: 15px;
+}
+
+/* Titles inside cards */
+.mvv-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--black);
+}
+
+.mvv-card p {
+    font-size: 0.95rem;
+    color: var(--dark-grey);
+    line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .mvv-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .mvv-card {
+        padding: 25px;
+    }
+}
+
+/* ------------------------------------------------------------
+   SMARTART GLASS CYCLE SECTION (VISIBLE GLASS EFFECT)
+------------------------------------------------------------- */
+
+.advantage-section {
+    position: relative;
+    padding: 120px 0;
+}
+
+/* Strong background to make glass visible */
+.advantage-bg {
+    position: absolute;
+    inset: 0;
+    background: url("https://images.unsplash.com/photo-1581092160562-040fb4a6ec72?auto=format&fit=crop&w=1600&q=80")
+        center/cover no-repeat;
+    filter: brightness(0.45); /* darken bg so glass shows properly */
+    z-index: 0;
+}
+
+/* Glass layer on top of background */
+.advantage-section .content {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(18px);     /* REAL FROSTED GLASS */
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* SmartArt Layout */
+.advantage-cycle {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* SmartArt items */
+.advantage-item {
+    background: rgba(255, 255, 255, 0.35);
+    padding: 25px;
+    text-align: center;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: 0.3s ease;
+}
+
+/* Hover pop */
+.advantage-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* Icons */
+.advantage-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Titles */
+.advantage-item h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* Text */
+.advantage-item p {
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .advantage-cycle {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .advantage-cycle {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ------------------------------------------------------------
    CTA SECTION
 ------------------------------------------------------------- */
@@ -610,6 +776,86 @@ body {
             </div>
         </div>
     </section>
+
+    <!-- MISSION • VISION • VALUES SECTION -->
+<section class="mvv-section">
+    <div class="container">
+
+        <h2 class="section-title">Our Mission, Vision & Values</h2>
+        <div class="section-line"></div>
+
+        <div class="mvv-grid">
+
+            <!-- Mission -->
+            <div class="mvv-card">
+                <div class="mvv-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h3>Our Mission</h3>
+                <p>
+                    To supply high-quality industrial components supported by exceptional technical expertise,
+                    ensuring operational efficiency and reliability for industries across Zimbabwe.
+                </p>
+            </div>
+
+            <!-- Vision -->
+            <div class="mvv-card">
+                <div class="mvv-icon"><i class="fa-solid fa-eye"></i></div>
+                <h3>Our Vision</h3>
+                <p>
+                    To become Zimbabwe’s most trusted industrial solutions partner, known for reliability,
+                    innovation, and ethical service delivery across all sectors.
+                </p>
+            </div>
+
+            <!-- Values -->
+            <div class="mvv-card">
+                <div class="mvv-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                <h3>Our Values</h3>
+                <p>
+                    Integrity, professionalism, innovation, ethical sourcing, and a commitment
+                    to building long-term partnerships with our clients.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="advantage-section">
+    <div class="advantage-bg"></div>
+
+    <div class="container content">
+        <h2 class="section-title">Our Competitive Advantage</h2>
+        <div class="section-line"></div>
+
+        <div class="advantage-cycle">
+
+            <div class="advantage-item">
+                <div class="advantage-icon"><i class="fa-solid fa-shield"></i></div>
+                <h3>Unmatched Quality</h3>
+                <p>Reliable, long-lasting industrial components from leading global brands.</p>
+            </div>
+
+            <div class="advantage-item">
+                <div class="advantage-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <h3>Technical Support</h3>
+                <p>Expert guidance, troubleshooting, and field service capability.</p>
+            </div>
+
+            <div class="advantage-item">
+                <div class="advantage-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                <h3>Ethical Commitment</h3>
+                <p>We operate with integrity and supply only genuine, authorized products.</p>
+            </div>
+
+            <div class="advantage-item">
+                <div class="advantage-icon"><i class="fa-solid fa-gear"></i></div>
+                <h3>Tailored Solutions</h3>
+                <p>Customized inventory strategies designed around your operations.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 <!-- CTA SECTION -->
 <section class="cta-section">
