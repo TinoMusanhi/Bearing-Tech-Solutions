@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Bearing Tech Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a4a6e;
+            --primary-light: #2c6b9e;
+            --primary-dark: #0d2d46;
+            --accent: #ff6f00;
+            --accent-light: #ff9a44;
+            --accent-dark: #e65c00;
+            --complementary: #008080;
+            --complementary-light: #00a3a3;
+            --complementary-dark: #006666;
+            --light: #f8f9fa;
+            --light-gray: #e9ecef;
+            --medium-gray: #6c757d;
+            --dark: #212529;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 25px rgba(0,0,0,0.15);
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 30px auto 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.6s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-dark);
+        }
+
+        .btn-outline {
+            padding: 14px 32px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Header Styles */
+        header {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        header.scrolled {
+            padding: 5px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled .navbar {
+            padding: 10px 0;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo img {
+            height: 55px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 15px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent);
+            transition: width .3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a.active {
+            color: var(--primary);
+        }
+
+        nav ul li a.active::after {
+            width: 100%;
+            background: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(26, 74, 110, 0.7), rgba(26, 74, 110, 0.8)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin-bottom: 60px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .product-content p {
+            color: var(--medium-gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .product-features li {
+            padding: 5px 0;
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-features li:before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .product-actions .btn {
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Brands Section */
+        .brands-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .brand-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 25px 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .brand-card img {
+            max-width: 100%;
+            height: 60px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .brand-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Applications Section */
+        .applications-section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .application-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .application-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .application-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .application-card:hover .application-icon {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .application-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .application-card p {
+            color: var(--medium-gray);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            position: relative;
+            background: linear-gradient(rgba(26, 74, 110, 0.8), rgba(0, 128, 128, 0.8)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat fixed;
+            padding: 100px 0;
+            text-align: center;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            line-height: 1.6;
+            color: #f5f5f5;
+        }
+
+        .cta-buttons a {
+            margin: 0 15px;
+            padding: 15px 35px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer-section {
+            background: var(--white);
+            padding: 60px 0 20px;
+            border-top: 1px solid var(--light-gray);
+            color: #333;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            width: 140px;
+            margin-bottom: 15px;
+        }
+
+        .footer-desc {
+            color: var(--medium-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: "";
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            border-radius: 2px;
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--medium-gray);
+        }
+
+        .footer-list a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-list a:hover {
+            color: var(--accent);
+        }
+
+        .footer-social {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            margin: 0 8px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .cta-content p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-buttons a {
+                margin: 0;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                padding: 20px 0;
+                text-align: center;
+                z-index: 999;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height .4s ease;
+            }
+
+            nav.active ul {
+                max-height: 400px;
+                display: flex;
+            }
+
+            .category-filter {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+
+            .hero {
+                height: 40vh;
+                min-height: 300px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <img src="https://via.placeholder.com/150x70?text=BTS+Logo" alt="Bearing Tech Solutions Logo">
+            </div>
+
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Product Range</h1>
+            <p>High-quality industrial components and solutions for every sector</p>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p class="section-subtitle">Explore our comprehensive range of industrial components and solutions</p>
+
+            <div class="category-filter">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="bearings">Bearings</button>
+                <button class="filter-btn" data-filter="power-transmission">Power Transmission</button>
+                <button class="filter-btn" data-filter="seals">Seals & Gaskets</button>
+                <button class="filter-btn" data-filter="conveyor">Conveyor Systems</button>
+                <button class="filter-btn" data-filter="motors">Motors & Drives</button>
+                <button class="filter-btn" data-filter="lubricants">Lubricants</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Bearings Category -->
+                <div class="product-card" data-category="bearings">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Ball Bearings">
+                        <div class="product-category">Bearings</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Ball Bearings</h3>
+                        <p>High-precision ball bearings for various industrial applications with excellent radial and axial load capacity.</p>
+                        <ul class="product-features">
+                            <li>Available in various sizes and materials</li>
+                            <li>Low friction and high-speed capability</li>
+                            <li>Long service life with minimal maintenance</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="bearings">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Roller Bearings">
+                        <div class="product-category">Bearings</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Roller Bearings</h3>
+                        <p>Heavy-duty roller bearings designed for high load capacity applications in demanding environments.</p>
+                        <ul class="product-features">
+                            <li>Superior radial load capacity</li>
+                            <li>Robust construction for harsh conditions</li>
+                            <li>Available in cylindrical, spherical, and tapered variants</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="bearings">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Tapered Bearings">
+                        <div class="product-category">Bearings</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Tapered Bearings</h3>
+                        <p>Specialized tapered roller bearings for applications requiring combined radial and axial loads.</p>
+                        <ul class="product-features">
+                            <li>Excellent for combined load applications</li>
+                            <li>Precision engineered for automotive and industrial use</li>
+                            <li>Extended service life with proper maintenance</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Power Transmission Category -->
+                <div class="product-card" data-category="power-transmission">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="V-Belts">
+                        <div class="product-category">Power Transmission</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>V-Belts</h3>
+                        <p>High-performance V-belts for efficient power transmission in various industrial applications.</p>
+                        <ul class="product-features">
+                            <li>Multiple profiles available (A, B, C, D, E)</li>
+                            <li>Excellent grip and minimal slippage</li>
+                            <li>Resistant to heat, oil, and abrasion</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="power-transmission">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Chains & Sprockets">
+                        <div class="product-category">Power Transmission</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Chains & Sprockets</h3>
+                        <p>Durable chains and precision sprockets for reliable power transmission systems.</p>
+                        <ul class="product-features">
+                            <li>Available in roller, silent, and specialty chains</li>
+                            <li>Precision-machined sprockets for optimal performance</li>
+                            <li>Various materials including steel and stainless steel</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="power-transmission">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Pulleys">
+                        <div class="product-category">Power Transmission</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Pulleys</h3>
+                        <p>High-quality pulleys for various belt drive systems with precise engineering for optimal performance.</p>
+                        <ul class="product-features">
+                            <li>Available in cast iron, steel, and aluminum</li>
+                            <li>Precision balanced for smooth operation</li>
+                            <li>Various groove configurations for different belt types</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seals & Gaskets Category -->
+                <div class="product-card" data-category="seals">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Oil Seals">
+                        <div class="product-category">Seals & Gaskets</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Oil Seals</h3>
+                        <p>Premium quality oil seals to prevent lubricant leakage and contamination in rotating equipment.</p>
+                        <ul class="product-features">
+                            <li>Available in various materials (NBR, FKM, SIL)</li>
+                            <li>Designed for specific temperature and pressure ranges</li>
+                            <li>Custom sizes available upon request</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="seals">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gaskets">
+                        <div class="product-category">Seals & Gaskets</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Gaskets</h3>
+                        <p>High-performance gaskets for sealing applications in pipes, flanges, and industrial equipment.</p>
+                        <ul class="product-features">
+                            <li>Available in rubber, cork, fiber, and metal materials</li>
+                            <li>Custom shapes and sizes manufactured to specification</li>
+                            <li>Resistant to temperature, pressure, and chemicals</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conveyor Systems Category -->
+                <div class="product-card" data-category="conveyor">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Conveyor Belting">
+                        <div class="product-category">Conveyor Systems</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Conveyor Belting</h3>
+                        <p>Durable conveyor belting solutions for material handling across various industries.</p>
+                        <ul class="product-features">
+                            <li>Available in PVC, rubber, and fabric materials</li>
+                            <li>Various widths and thicknesses to suit application needs</li>
+                            <li>Resistant to abrasion, tearing, and impact</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motors & Drives Category -->
+                <div class="product-card" data-category="motors">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Electric Motors">
+                        <div class="product-category">Motors & Drives</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Electric Motors</h3>
+                        <p>High-efficiency electric motors for industrial applications with various power ratings and configurations.</p>
+                        <ul class="product-features">
+                            <li>Available in AC and DC variants</li>
+                            <li>Various enclosure types (TEFC, ODP, explosion-proof)</li>
+                            <li>Energy-efficient designs for reduced operating costs</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="motors">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Geared Motors">
+                        <div class="product-category">Motors & Drives</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Geared Motors</h3>
+                        <p>Integrated motor and gearbox solutions for applications requiring high torque at low speeds.</p>
+                        <ul class="product-features">
+                            <li>Available in helical, worm, and planetary configurations</li>
+                            <li>Various reduction ratios to match application requirements</li>
+                            <li>Compact design for space-constrained installations</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lubricants Category -->
+                <div class="product-card" data-category="lubricants">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Industrial Lubricants">
+                        <div class="product-category">Lubricants</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Industrial Lubricants</h3>
+                        <p>High-performance lubricants for bearings, gears, and other industrial components.</p>
+                        <ul class="product-features">
+                            <li>Available in grease and oil formulations</li>
+                            <li>Designed for specific temperature ranges and operating conditions</li>
+                            <li>Extended equipment life and reduced maintenance</li>
+                        </ul>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-accent">Request Quote</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="applications-section">
+        <div class="container">
+            <h2 class="section-title">Industry Applications</h2>
+            <p class="section-subtitle">Our products serve a wide range of industries and applications</p>
+
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="application-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Manufacturing</h3>
+                    <p>Precision components for production lines, machinery, and automated systems.</p>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-icon">
+                        <i class="fas fa-truck-loading"></i>
+                    </div>
+                    <h3>Mining</h3>
+                    <p>Heavy-duty components for conveyors, crushers, and processing equipment.</p>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Automotive</h3>
+                    <p>High-precision bearings and seals for vehicles and automotive manufacturing.</p>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-icon">
+                        <i class="fas fa-fan"></i>
+                    </div>
+                    <h3>Agriculture</h3>
+                    <p>Durable components for tractors, harvesters, and irrigation systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="cta">
+        <div class="container cta-content">
+            <h2>Need Specific Products?</h2>
+            <p>Contact our team for customized solutions and expert recommendations for your application.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-accent">Request a Quote</a>
+                <a href="contact.html" class="btn-outline">Contact Our Team</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container footer-container">
+            <div class="footer-col footer-branding">
+                <img src="https://via.placeholder.com/150x70?text=BTS+Logo" alt="BTS Logo" class="footer-logo">
+                <p class="footer-desc">
+                    We invite you to contact us today to discuss your specific requirements and learn how BTS can become
+                    your trusted partner for all your industrial component needs.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-list">
+                    <li><strong>Address:</strong> 1171 Aspindale, Harare, Zimbabwe</li>
+                    <li><strong>Phone:</strong> +263 777 671 014 / +263 773 112 847</li>
+                    <li><strong>Email:</strong> sales.bearingtech@outlook.com</li>
+                    <li><strong>Facebook:</strong> bearingtech</li>
+                    <li><strong>Location:</strong> Aspindale, Harare</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Product Categories</h4>
+                <ul class="footer-list">
+                    <li><a href="#bearings">Bearings</a></li>
+                    <li><a href="#power-transmission">Power Transmission</a></li>
+                    <li><a href="#seals">Seals & Gaskets</a></li>
+                    <li><a href="#conveyor">Conveyor Systems</a></li>
+                    <li><a href="#motors">Motors & Drives</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Bearing Tech Solutions (BTS). All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+
+        function toggleMenu() {
+            nav.classList.toggle('active');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const backToTop = document.getElementById('backToTop');
+
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Show/hide back to top button
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Product Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                // Show/hide products based on filter
+                productCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

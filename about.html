@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Bearing Tech Solutions Pvt Ltd</title>
+    <title>About Us - Bearing Tech Solutions Pvt Ltd</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,278 +12,399 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ------------------------------------------------------------
+       THEME COLORS
+    ------------------------------------------------------------- */
+    :root {
+        --white: #ffffff;
+        --light-grey: #f8f9fa;
+        --medium-grey: #e9ecef;
+        --dark-grey: #6c757d;
+        --black: #212529;
+        --primary: #1a4a6e; /* Professional blue */
+        --primary-light: #2c6b9e;
+        --accent: #ff6f00; /* Accent orange */
+        --accent-light: #ff9a44;
+        --accent-dark: #e65c00;
+        --complementary: #008080; /* Teal complementary color */
+        --complementary-light: #00a3a3;
+        --success: #28a745;
+    }
+
     /* ------------------------------------------------------------
-   THEME COLORS
-------------------------------------------------------------- */
-:root {
-    --white: #ffffff;
-    --light-grey: #f2f2f2;
-    --medium-grey: #d9d9d9;
-    --dark-grey: #555555;
-    --black: #111111;
-}
+       GLOBAL RESET
+    ------------------------------------------------------------- */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-/* ------------------------------------------------------------
-   GLOBAL RESET
-------------------------------------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    html {
+        scroll-behavior: smooth;
+    }
 
-body {
+    body {
         font-family: 'Inter', sans-serif;
-        background: url('https://www.istockphoto.com/en/photo/dusk-view-of-downtown-harare-zimbabwe-gm516323756-88939359') center/cover fixed no-repeat;
-        backdrop-filter: blur(3px);
+        background-color: var(--white);
         color: var(--black);
         overflow-x: hidden;
+        line-height: 1.6;
     }
 
-/* Headings */
-h1, h2, h3, h4, h5 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
+    /* Headings */
+    h1, h2, h3, h4, h5 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+    }
 
-/* Global container */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
+    /* Global container */
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
 
-/* ------------------------------------------------------------
-   SECTION SPACING
-------------------------------------------------------------- */
-section {
-    padding: 80px 0;
-}
+    /* ------------------------------------------------------------
+       SECTION SPACING
+    ------------------------------------------------------------- */
+    section {
+        padding: 80px 0;
+    }
 
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        position: relative;
+        color: var(--primary);
+    }
 
-.section-title:after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--dark-grey);
-}
+    .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 2px;
+    }
 
-.section-line {
-    width: 60px;
-    height: 3px;
-    background: var(--dark-grey);
-    margin: 0 auto 40px;
-}
+    .section-subtitle {
+        text-align: center;
+        font-size: 1.1rem;
+        color: var(--dark-grey);
+        max-width: 700px;
+        margin: 0 auto 50px;
+    }
 
-/* ------------------------------------------------------------
-   BUTTONS
-------------------------------------------------------------- */
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background-color: var(--black);
-    color: var(--white);
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all .3s ease;
-}
+    /* ------------------------------------------------------------
+       BUTTONS
+    ------------------------------------------------------------- */
+    .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        background-color: var(--primary);
+        color: var(--white);
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all .4s ease;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(26, 74, 110, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
 
-.btn:hover {
-    background-color: var(--dark-grey);
-}
+    .btn:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: all 0.6s;
+    }
 
-/* Outline button */
-.btn-outline {
-    padding: 12px 28px;
-    border: 2px solid var(--black);
-    color: var(--black);
-    background: transparent;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: .3s ease;
-}
+    .btn:hover:before {
+        left: 100%;
+    }
 
-.btn-outline:hover {
-    background: var(--black);
-    color: var(--white);
-}
+    .btn:hover {
+        background-color: var(--primary-light);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(26, 74, 110, 0.3);
+    }
 
-/* ------------------------------------------------------------
-   NAVIGATION BAR
-------------------------------------------------------------- */
-header {
-    width: 100%;
-    background-color: var(--white);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-}
+    /* Outline button */
+    .btn-outline {
+        padding: 14px 32px;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        background: transparent;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: .4s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-}
+    .btn-outline:hover {
+        background: var(--primary);
+        color: var(--white);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(26, 74, 110, 0.2);
+    }
 
-/* Logo */
-.logo img {
-    height: 70px;
-     width: auto;
-    object-fit: contain;
-}
+    /* Accent button */
+    .btn-accent {
+        background-color: var(--accent);
+        box-shadow: 0 4px 15px rgba(255, 111, 0, 0.2);
+    }
 
-/* Desktop Menu */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
+    .btn-accent:hover {
+        background-color: var(--accent-dark);
+        box-shadow: 0 8px 20px rgba(255, 111, 0, 0.3);
+    }
 
-nav ul li a {
-    text-decoration: none;
-    color: var(--black);
-    font-weight: 500;
-    font-size: 15px;
-}
+    /* Complementary button */
+    .btn-complementary {
+        background-color: var(--complementary);
+        box-shadow: 0 4px 15px rgba(0, 128, 128, 0.2);
+    }
 
-/* Hover underline animation */
-nav ul li a {
-    position: relative;
-}
+    .btn-complementary:hover {
+        background-color: var(--complementary-light);
+        box-shadow: 0 8px 20px rgba(0, 128, 128, 0.3);
+    }
 
-nav ul li a::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: var(--black);
-    transition: width .3s ease;
-}
+    /* ------------------------------------------------------------
+       NAVIGATION BAR
+    ------------------------------------------------------------- */
+    header {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
+    }
 
-nav ul li a:hover::after {
-    width: 100%;
-}
+    header.scrolled {
+        padding: 5px 0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
 
-nav ul li a:hover {
-    color: var(--dark-grey);
-}
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        transition: all 0.4s ease;
+    }
 
-/* Active page highlight */
-nav ul li a.active {
-    color: var(--dark-grey);
-}
+    header.scrolled .navbar {
+        padding: 10px 0;
+    }
 
-nav ul li a.active::after {
-    width: 100%;
-}
+    /* Logo */
+    .logo img {
+        height: 70px;
+        width: auto;
+        object-fit: contain;
+        transition: all 0.4s ease;
+    }
 
+    header.scrolled .logo img {
+        height: 55px;
+    }
 
-/* Mobile Menu Button */
-.mobile-menu-btn {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-/* ------------------------------------------------------------
-   MOBILE NAVIGATION
-------------------------------------------------------------- */
-@media(max-width: 768px) {
+    /* Desktop Menu */
     nav ul {
-        display: none;
+        list-style: none;
+        display: flex;
+        gap: 30px;
     }
 
+    nav ul li a {
+        text-decoration: none;
+        color: var(--black);
+        font-weight: 500;
+        font-size: 15px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    /* Hover underline animation */
+    nav ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: var(--accent);
+        transition: width .3s ease;
+    }
+
+    nav ul li a:hover::after {
+        width: 100%;
+    }
+
+    nav ul li a:hover {
+        color: var(--primary);
+    }
+
+    /* Active page highlight */
+    nav ul li a.active {
+        color: var(--primary);
+    }
+
+    nav ul li a.active::after {
+        width: 100%;
+        background: var(--primary);
+    }
+
+    /* Mobile Menu Button */
     .mobile-menu-btn {
-        display: block;
+        display: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: var(--black);
+        transition: all 0.3s ease;
     }
-/* Smooth mobile dropdown */
-nav ul {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .4s ease;
-}
 
-nav.active ul {
-    max-height: 300px;
-    padding: 20px 0;
-    background: var(--white);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-     }
-body {
-    padding-top: 90px; /* ensures hero section is visible */
-}
+    .mobile-menu-btn:hover {
+        color: var(--accent);
+    }
 
- /* ---------------- HERO SECTION ---------------- */
+    /* ------------------------------------------------------------
+       MOBILE NAVIGATION
+    ------------------------------------------------------------- */
+    @media(max-width: 768px) {
+        nav ul {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            text-align: center;
+            z-index: 999;
+        }
+
+        nav ul li {
+            margin: 10px 0;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+        }
+
+        /* Smooth mobile dropdown */
+        nav ul {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease;
+        }
+
+        nav.active ul {
+            max-height: 400px;
+            display: flex;
+        }
+    }
+
+    body {
+        padding-top: 90px; /* ensures hero section is visible */
+    }
+
+    header.scrolled + body {
+        padding-top: 70px;
+    }
+
+    /* ------------------------------------------------------------
+       HERO SECTION
+    ------------------------------------------------------------- */
     .hero {
         position: relative;
         height: 60vh;
-        background: url('images/About_Hero_Pic.png') center/cover no-repeat;
+        min-height: 500px;
+        background: linear-gradient(rgba(26, 74, 110, 0.7), rgba(26, 74, 110, 0.8)), url('images/About_Hero_Pic.png') center/cover no-repeat;
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
         margin-bottom: 60px;
-    }
-
-    .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.45);
+        overflow: hidden;
     }
 
     .hero-content {
         position: relative;
         z-index: 5;
         text-align: center;
-        max-width: 700px;
+        max-width: 800px;
+        padding: 0 20px;
     }
 
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 3.2rem;
         margin-bottom: 15px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        animation: fadeInUp 1s ease;
     }
 
     .hero-content p {
-        font-size: 1.1rem;
-        opacity: 0.85;
+        font-size: 1.2rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease 0.2s both;
     }
 
-    /* ---------------- ABOUT SECTION ---------------- */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ------------------------------------------------------------
+       ABOUT SECTION
+    ------------------------------------------------------------- */
     .about-section {
-        padding: 60px 0;
+        padding: 80px 0;
+        background-color: var(--light-grey);
     }
 
     .about-wrapper {
         display: flex;
         gap: 40px;
         align-items: center;
-
-        background: var(--glass-bg);
-        backdrop-filter: blur(10px);
+        background: var(--white);
         border-radius: 15px;
-        border: 1px solid var(--glass-border);
-        padding: 40px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        padding: 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: transform 0.4s ease;
+    }
+
+    .about-wrapper:hover {
+        transform: translateY(-5px);
     }
 
     .about-text {
@@ -293,17 +414,54 @@ body {
     .about-text h2 {
         text-align: left;
         margin-bottom: 20px;
-        font-size: 2rem;
+        font-size: 2.2rem;
+        color: var(--primary);
+        position: relative;
+    }
+
+    .about-text h2:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 2px;
     }
 
     .about-text p {
-        line-height: 1.6;
+        line-height: 1.7;
         font-size: 1.1rem;
-        opacity: 0.9;
+        color: var(--dark-grey);
+        margin-bottom: 20px;
+    }
+
+    .about-stats {
+        display: flex;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .stat {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        display: block;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        color: var(--dark-grey);
     }
 
     .about-image {
         flex: 1;
+        position: relative;
     }
 
     .about-image img {
@@ -311,7 +469,12 @@ body {
         height: 340px;
         object-fit: cover;
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        transition: transform 0.5s ease;
+    }
+
+    .about-image:hover img {
+        transform: scale(1.03);
     }
 
     /* MOBILE */
@@ -319,754 +482,897 @@ body {
         .about-wrapper {
             flex-direction: column;
             text-align: center;
+            padding: 30px;
+        }
+
+        .about-text h2 {
+            text-align: center;
+        }
+
+        .about-text h2:after {
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .about-image img {
             height: 260px;
         }
+
+        .about-stats {
+            justify-content: center;
+        }
     }
 
     /* ----------------------------------------------
-   MISSION • VISION • VALUES
-------------------------------------------------*/
-.mvv-section {
-    padding: 90px 0;
-    background: url('images/Bearing tech solutions logo.jpeg') center/cover no-repeat;
-    position: relative;
-}
+       MISSION • VISION • VALUES
+    ------------------------------------------------*/
+    .mvv-section {
+        padding: 90px 0;
+        background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('images/Bearing tech solutions logo.jpeg') center/cover no-repeat;
+        position: relative;
+    }
 
-.mvv-section::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255,255,255,0.6); /* glassy effect */
-    backdrop-filter: blur(5px);
-}
-
-.mvv-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-.mvv-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.mvv-card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(4px);
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid rgba(0,0,0,0.08);
-    transition: 0.3s ease;
-}
-
-.mvv-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-.mvv-icon {
-    font-size: 40px;
-    color: var(orange);
-    margin-bottom: 15px;
-}
-
-/* Titles inside cards */
-.mvv-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    color: var(--black);
-}
-
-.mvv-card p {
-    font-size: 0.95rem;
-    color: var(--dark-grey);
-    line-height: 1.6;
-}
-
-/* Mobile */
-@media (max-width: 900px) {
     .mvv-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 50px;
     }
 
     .mvv-card {
-        padding: 25px;
+        background: var(--white);
+        padding: 40px 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        border-top: 5px solid var(--accent);
+        position: relative;
+        overflow: hidden;
     }
-}
 
-/* ------------------------------------------------------------
-   CYCLE SECTION - Background + Overlay
-------------------------------------------------------------- */
-.cycle-section {
-  position: relative;
-  padding: 100px 0;
-  background: url('images/Why_choose_us.jpg') center/cover no-repeat;
-  background-attachment: fixed; /* keeps image fixed while section scrolls */
-  background-size: cover;
-  z-index: 1;
-  overflow: hidden;
-}
-
-/* Dark overlay for readability */
-.cycle-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.55); /* darker for better text contrast */
-  z-index: 1;
-}
-
-/* Container sits above overlay */
-.cycle-section .container {
-  position: relative;
-  z-index: 2;
-  text-align: horizontal;
-}
-
-/* Section line decoration */
-.cycle-section .section-line {
-  width: 80px;
-  height: 4px;
-  background: #ff6f00;
-  margin: 20px auto 50px;
-  border-radius: 2px;
-}
-
-/* Container for all cycle items */
-.cycle-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 30px; /* spacing between items */
-}
-
-/* Each cycle item */
-.cycle-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 260px; /* uniform text block width */
-  text-align: center;
-}
-
-/* Circle element */
-.cycle-circle {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.7); /* slightly transparent for backdrop filter */
-  border: 4px solid var(--black);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 45px;
-  color: var(--black);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  backdrop-filter: blur(5px);
-  margin-bottom: 15px;
-}
-
-/* Hover effect */
-.cycle-circle:hover {
-  transform: scale(1.12);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  background: rgba(255,255,255,0.95);
-}
-
-/* Text */
-.cycle-item h3 {
-  font-size: 1.2rem;
-  color: #fff; /* stands out on dark overlay */
-  margin: 5px 0 8px;
-}
-
-.cycle-item p {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.9);
-  line-height: 1.5;
-}
-
-/* Responsive: wrap items on medium screens */
-@media (max-width: 992px) {
-  .cycle-container {
-    justify-content: center;
-  }
-}
-
-/* Responsive: stack items on small screens */
-@media (max-width: 768px) {
-  .cycle-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .cycle-item {
-    max-width: 90%; /* allow more space for text */
-  }
-}
-
-/* ------------------------------------------------------------
-   OUR PARTNERS SECTION - 4 PER ROW
-------------------------------------------------------------- */
-.partners-section {
-    position: relative;
-    padding: 80px 0;
-    background: #ffffff; /* white background */
-    color: var(--black);
-}
-
-.partners-section .section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.partners-section .section-line {
-    width: 80px;
-    height: 4px;
-    background: #ff6f00; /* theme accent color */
-    margin: 20px auto 50px;
-    border-radius: 2px;
-}
-
-/* Grid layout for partner logos: 4 per row */
-.partners-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* exactly 4 logos per row */
-    gap: 30px;
-    align-items: center;
-    justify-items: center;
-    text-align: center;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* Individual partner card */
-.partner-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-    padding: 20px 15px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.partner-card a {
-    text-decoration: none;
-    display: block;
-    color: var(--black);
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-.partner-card img {
-    width: 100px; /* fixed logo size for uniformity */
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 10px;
-}
-
-.partner-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-/* Responsive: 2 per row on tablets, 1 per row on mobile */
-@media (max-width: 992px) {
-    .partners-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .mvv-card:nth-child(2) {
+        border-top-color: var(--complementary);
     }
-}
 
-@media (max-width: 576px) {
-    .partners-grid {
-        grid-template-columns: 1fr;
+    .mvv-card:nth-child(3) {
+        border-top-color: var(--primary);
     }
-}
 
-
-/* ------------------------------------------------------------
-   CTA SECTION
-------------------------------------------------------------- */
-.cta-section {
-    position: relative;
-    background: url('images/Why_choose_us.jpg') center/cover no-repeat;
-    background-attachment: fixed; /* fixed background for parallax effect */
-    padding: 100px 0;
-    text-align: center;
-    overflow: hidden;
-    color: #fff;
-}
-
-.cta-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* subtle dark overlay for contrast */
-    z-index: 1;
-}
-
-.cta-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: auto;
-}
-
-.cta-content h2 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.cta-content p {
-    font-size: 1.2rem;
-    margin-bottom: 35px;
-    line-height: 1.6;
-    color: #f5f5f5;
-}
-
-.cta-buttons a {
-    margin: 0 15px;
-    padding: 15px 35px;
-    font-size: 1rem;
-}
-
-.cta-buttons .btn {
-    background-color: #ff6f00; /* your accent orange */
-    color: #fff;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.cta-buttons .btn:hover {
-    background-color: #e65c00;
-}
-
-.cta-buttons .btn-outline {
-    border: 2px solid #ff6f00;
-    color: #ff6f00;
-    background: transparent;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.cta-buttons .btn-outline:hover {
-    background-color: #ff6f00;
-    color: #fff;
-}
-
-/* ===============================================
-   FOOTER SECTION (White, Modern, Clean)
-================================================ */
-.footer-section {
-    background: #ffffff;
-    padding: 60px 0 20px;
-    border-top: 1px solid #e5e5e5;
-    color: #333;
-    font-family: "Poppins", sans-serif;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr 1fr;
-    gap: 40px;
-}
-
-.footer-logo {
-    width: 140px;
-    margin-bottom: 15px;
-}
-
-.footer-desc {
-    color: #555;
-    line-height: 1.7;
-    font-size: 0.95rem;
-}
-
-.footer-col h4 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #222;
-    position: relative;
-}
-
-.footer-col h4::after {
-    content: "";
-    width: 40px;
-    height: 3px;
-    background: #ff6f00;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    border-radius: 2px;
-}
-
-.footer-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-list li {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    color: #555;
-}
-
-.footer-list a {
-    color: #444;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-list a:hover {
-    color: #ff6f00;
-}
-/* ===============================================
-   SOCIAL MEDIA ICONS
-================================================ */
-.footer-social {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-.footer-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    margin: 0 8px;
-    background: #ff6f00;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.footer-social a:hover {
-    background: #1a4a6e;  /* theme teal/dark blue */
-    color: #fff;
-    transform: translateY(-5px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}
-
-
-/* COPYRIGHT AREA */
-.footer-bottom {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 15px;
-    border-top: 1px solid #ddd;
-}
-
-.footer-bottom p {
-    font-size: 0.85rem;
-    color: #666;
-}
-
-/* Responsive */
-@media(max-width: 900px) {
-    .footer-container {
-        grid-template-columns: 1fr 1fr;
+    .mvv-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
-}
 
-@media(max-width: 600px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: left;
+    .mvv-icon {
+        font-size: 50px;
+        margin-bottom: 20px;
+        transition: transform 0.4s ease;
     }
-}
 
-/* Responsive adjustments */
-@media(max-width: 768px) {
-    .cta-content h2 {
-        font-size: 2rem;
+    .mvv-card:nth-child(1) .mvv-icon {
+        color: var(--accent);
     }
-    .cta-content p {
+
+    .mvv-card:nth-child(2) .mvv-icon {
+        color: var(--complementary);
+    }
+
+    .mvv-card:nth-child(3) .mvv-icon {
+        color: var(--primary);
+    }
+
+    .mvv-card:hover .mvv-icon {
+        transform: scale(1.1);
+    }
+
+    /* Titles inside cards */
+    .mvv-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+    }
+
+    .mvv-card p {
         font-size: 1rem;
+        color: var(--dark-grey);
+        line-height: 1.6;
     }
-    .cta-buttons {
+
+    /* Mobile */
+    @media (max-width: 900px) {
+        .mvv-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .mvv-card {
+            padding: 30px 25px;
+        }
+    }
+
+    /* ------------------------------------------------------------
+       CYCLE SECTION - Competitive Advantage
+    -------------------------------------------------------------- */
+    .cycle-section {
+        position: relative;
+        padding: 100px 0;
+        background: linear-gradient(rgba(26, 74, 110, 0.85), rgba(0, 128, 128, 0.85)), url('images/Why_choose_us.jpg') center/cover no-repeat fixed;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .cycle-section .section-title {
+        color: var(--white);
+    }
+
+    .cycle-section .section-title:after {
+        background: var(--accent);
+    }
+
+    .cycle-section .section-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Container for all cycle items */
+    .cycle-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    /* Each cycle item */
+    .cycle-item {
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        align-items: center;
+        max-width: 260px;
+        text-align: center;
+        transition: transform 0.4s ease;
     }
-}
-</style>
+
+    .cycle-item:hover {
+        transform: translateY(-10px);
+    }
+
+    /* Circle element */
+    .cycle-circle {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.9);
+        border: 4px solid var(--accent);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 45px;
+        color: var(--primary);
+        transition: all 0.4s ease;
+        margin-bottom: 20px;
+        font-weight: 700;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .cycle-item:nth-child(2) .cycle-circle {
+        border-color: var(--complementary);
+    }
+
+    .cycle-item:nth-child(3) .cycle-circle {
+        border-color: var(--primary);
+    }
+
+    .cycle-item:nth-child(4) .cycle-circle {
+        border-color: var(--accent-dark);
+    }
+
+    /* Hover effect */
+    .cycle-circle:hover {
+        transform: scale(1.12);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+        background: var(--white);
+    }
+
+    /* Text */
+    .cycle-item h3 {
+        font-size: 1.3rem;
+        color: var(--white);
+        margin: 5px 0 12px;
+    }
+
+    .cycle-item p {
+        font-size: 0.95rem;
+        color: rgba(255,255,255,0.9);
+        line-height: 1.6;
+    }
+
+    /* Responsive: stack items on small screens */
+    @media (max-width: 768px) {
+        .cycle-container {
+            flex-direction: column;
+            align-items: center;
+        }
+        .cycle-item {
+            max-width: 90%;
+        }
+    }
+
+    /* ------------------------------------------------------------
+       OUR PARTNERS SECTION
+    -------------------------------------------------------------- */
+    .partners-section {
+        position: relative;
+        padding: 80px 0;
+        background: var(--light-grey);
+        color: var(--black);
+    }
+
+    .partners-section .section-title {
+        color: var(--primary);
+    }
+
+    .partners-section .section-title:after {
+        background: var(--accent);
+    }
+
+    /* Grid layout for partner logos: 4 per row */
+    .partners-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Individual partner card */
+    .partner-card {
+        background: var(--white);
+        border-radius: 12px;
+        padding: 25px 20px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        width: 100%;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 4px solid var(--complementary);
+    }
+
+    .partner-card:nth-child(2n) {
+        border-top-color: var(--accent);
+    }
+
+    .partner-card:nth-child(3n) {
+        border-top-color: var(--primary);
+    }
+
+    .partner-card a {
+        text-decoration: none;
+        display: block;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    .partner-card:hover a {
+        color: var(--accent);
+    }
+
+    .partner-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    /* Responsive: 2 per row on tablets, 1 per row on mobile */
+    @media (max-width: 992px) {
+        .partners-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 576px) {
+        .partners-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ------------------------------------------------------------
+       TEAM SECTION
+    -------------------------------------------------------------- */
+    .team-section {
+        padding: 80px 0;
+        background: var(--white);
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .team-member {
+        text-align: center;
+        transition: transform 0.4s ease;
+    }
+
+    .team-member:hover {
+        transform: translateY(-10px);
+    }
+
+    .member-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 20px;
+        border: 5px solid var(--light-grey);
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .team-member:hover .member-photo {
+        border-color: var(--accent);
+    }
+
+    .member-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .team-member:hover .member-photo img {
+        transform: scale(1.05);
+    }
+
+    .member-info h3 {
+        margin-bottom: 5px;
+        color: var(--primary);
+    }
+
+    .member-info p {
+        color: var(--dark-grey);
+        font-style: italic;
+    }
+
+    .member-social {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .member-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: var(--light-grey);
+        color: var(--dark-grey);
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .member-social a:hover {
+        background: var(--primary);
+        color: var(--white);
+        transform: translateY(-3px);
+    }
+
+    /* ------------------------------------------------------------
+       CTA SECTION
+    -------------------------------------------------------------- */
+    .cta-section {
+        position: relative;
+        background: linear-gradient(rgba(26, 74, 110, 0.8), rgba(0, 128, 128, 0.8)), url('images/Why_choose_us.jpg') center/cover no-repeat fixed;
+        padding: 100px 0;
+        text-align: center;
+        overflow: hidden;
+        color: #fff;
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .cta-content h2 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+
+    .cta-content p {
+        font-size: 1.2rem;
+        margin-bottom: 35px;
+        line-height: 1.6;
+        color: #f5f5f5;
+    }
+
+    .cta-buttons a {
+        margin: 0 15px;
+        padding: 15px 35px;
+        font-size: 1rem;
+    }
+
+    /* ===============================================
+       FOOTER SECTION
+    ================================================ */
+    .footer-section {
+        background: var(--white);
+        padding: 60px 0 20px;
+        border-top: 1px solid var(--medium-grey);
+        color: #333;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1fr;
+        gap: 40px;
+    }
+
+    .footer-logo {
+        width: 140px;
+        margin-bottom: 15px;
+    }
+
+    .footer-desc {
+        color: var(--dark-grey);
+        line-height: 1.7;
+        font-size: 0.95rem;
+    }
+
+    .footer-col h4 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--primary);
+        position: relative;
+    }
+
+    .footer-col h4::after {
+        content: "";
+        width: 40px;
+        height: 3px;
+        background: var(--accent);
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        border-radius: 2px;
+    }
+
+    .footer-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-list li {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+        color: var(--dark-grey);
+    }
+
+    .footer-list a {
+        color: var(--dark-grey);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-list a:hover {
+        color: var(--accent);
+    }
+
+    /* ===============================================
+       SOCIAL MEDIA ICONS
+    ================================================ */
+    .footer-social {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        margin: 0 8px;
+        background: var(--accent);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .footer-social a:hover {
+        background: var(--primary);
+        color: #fff;
+        transform: translateY(-5px);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    /* COPYRIGHT AREA */
+    .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 15px;
+        border-top: 1px solid var(--medium-grey);
+    }
+
+    .footer-bottom p {
+        font-size: 0.85rem;
+        color: var(--dark-grey);
+    }
+
+    /* Responsive */
+    @media(max-width: 900px) {
+        .footer-container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media(max-width: 600px) {
+        .footer-container {
+            grid-template-columns: 1fr;
+            text-align: left;
+        }
+    }
+
+    /* Responsive adjustments */
+    @media(max-width: 768px) {
+        .cta-content h2 {
+            font-size: 2rem;
+        }
+        .cta-content p {
+            font-size: 1rem;
+        }
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--accent);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 999;
+        box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
+    }
+
+    .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background: var(--primary);
+        transform: translateY(-5px);
+    }
+    </style>
 </head>
 <body>
-   <header>
-    <div class="container navbar">
 
-        <!-- LOGO -->
-        <div class="logo">
-            <img src="images/BTS Logo.png" alt="Bearing Tech Solutions Logo">
+    <header>
+        <div class="container navbar">
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="images/BTS Logo.png" alt="Bearing Tech Solutions Logo">
+            </div>
+
+            <!-- NAV LINKS -->
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Icon -->
+            <div class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
+    </header>
 
-        <!-- NAV LINKS -->
-        <nav id="navMenu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About Us</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-
-        <!-- Mobile Icon -->
-        <div class="mobile-menu-btn" onclick="toggleMenu()">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    </div>
-  </header>
-
-  <!-- HERO -->
+    <!-- HERO -->
     <section class="hero">
-        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>About Bearing Tech Solutions</h1>
-            <p>Learn more about the most trusted industrial component supplier for Zimbabwe’s leading industries.</p>
+            <p>Learn more about the most trusted industrial component supplier for Zimbabwe's leading industries.</p>
         </div>
     </section>
 
     <!-- ABOUT SECTION -->
-    <section class="about-section">
+    <section class="about-section" id="about">
         <div class="container">
-            <div class="about-wrapper">
-
+            <div class="about-wrapper" data-aos="fade-up">
                 <div class="about-text">
                     <h2>Company Overview</h2>
                     <p>
                         BEARING TECH SOLUTIONS (BTS) PVT LTD is a leading supplier of
                         industrial components and engineering solutions based in
-                        Aspindale, Harare, Zimbabwe.  
-                        <br><br>
+                        Aspindale, Harare, Zimbabwe.
+                    </p>
+                    <p>
                         We are committed to providing our clients with exceptional service,
                         top-tier products, and expert technical support. Our extensive
                         industry knowledge allows us to supply high-performance solutions
                         that improve operational efficiency, reduce downtime, and support
                         sustainable industrial growth.
-                        <br><br>
+                    </p>
+                    <p>
                         Whether you need bearings, power transmission components, seals,
                         conveyor systems, motors, or engineering supplies — BTS ensures
                         reliable delivery, ethical sourcing, and unmatched professional service.
                     </p>
+
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-count="15">0</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="500">0</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="1000">0</span>
+                            <span class="stat-label">Products</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="about-image">
                     <img src="images/p1_About_Section.png" alt="Factory Image">
                 </div>
-
             </div>
         </div>
     </section>
 
     <!-- MISSION • VISION • VALUES SECTION -->
-<section class="mvv-section">
-    <div class="container">
+    <section class="mvv-section" id="mvv">
+        <div class="container">
+            <h2 class="section-title">Our Mission, Vision & Values</h2>
+            <p class="section-subtitle">The principles that guide everything we do</p>
 
-        <h2 class="section-title">Our Mission, Vision & Values</h2>
-        <div class="section-line"></div>
+            <div class="mvv-grid">
+                <!-- Mission -->
+                <div class="mvv-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mvv-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>
+                        To supply high-quality industrial components supported by exceptional technical expertise,
+                        ensuring operational efficiency and reliability for industries across Zimbabwe.
+                    </p>
+                </div>
 
-        <div class="mvv-grid">
+                <!-- Vision -->
+                <div class="mvv-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mvv-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>
+                        To become Zimbabwe's most trusted industrial solutions partner, known for reliability,
+                        innovation, and ethical service delivery across all sectors.
+                    </p>
+                </div>
 
-            <!-- Mission -->
-            <div class="mvv-card">
-                <div class="mvv-icon"><i class="fa-solid fa-bullseye"></i></div>
-                <h3>Our Mission</h3>
-                <p>
-                    To supply high-quality industrial components supported by exceptional technical expertise,
-                    ensuring operational efficiency and reliability for industries across Zimbabwe.
+                <!-- Values -->
+                <div class="mvv-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="mvv-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                    <h3>Our Values</h3>
+                    <p>
+                        Integrity, professionalism, innovation, ethical sourcing, and a commitment
+                        to building long-term partnerships with our clients.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR COMPETITIVE ADVANTAGE SECTION -->
+    <section class="cycle-section" id="advantage">
+        <div class="container">
+            <h2 class="section-title">Our Competitive Advantage</h2>
+            <p class="section-subtitle">What sets us apart in the industry</p>
+
+            <div class="cycle-container">
+                <div class="cycle-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cycle-circle">01</div>
+                    <h3>Unmatched Quality</h3>
+                    <p>We prioritize supplying reliable and long-lasting components from industry-leading brands, maximizing your equipment uptime and reducing maintenance costs.</p>
+                </div>
+
+                <div class="cycle-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cycle-circle">02</div>
+                    <h3>Technical Support</h3>
+                    <p>Our knowledgeable team is readily available to answer your questions, provide technical guidance, and help you find the most suitable solutions for your specific needs.</p>
+                </div>
+
+                <div class="cycle-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="cycle-circle">03</div>
+                    <h3>Ethical Commitment</h3>
+                    <p>We operate with integrity and transparency, ensuring you receive genuine products sourced through responsible channels.</p>
+                </div>
+
+                <div class="cycle-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="cycle-circle">04</div>
+                    <h3>Tailored Solutions</h3>
+                    <p>We work closely with you to develop personalized inventory management strategies that optimize your operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- OUR PARTNERS SECTION -->
+    <section class="partners-section" id="partners">
+        <div class="container">
+            <h2 class="section-title">Our Partners</h2>
+            <p class="section-subtitle">Trusted brands we work with</p>
+
+            <div class="partners-grid">
+                <div class="partner-card" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://www.timken.com/" target="_blank" rel="noopener">Timken</a>
+                </div>
+                <div class="partner-card" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://fptgroup.com/en/" target="_blank" rel="noopener">Fenner Power Transmission</a>
+                </div>
+                <div class="partner-card" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://www.ntnglobal.com/en/index.html" target="_blank" rel="noopener">NTN</a>
+                </div>
+                <div class="partner-card" data-aos="fade-up" data-aos-delay="400">
+                    <a href="https://www.trbearings.com/" target="_blank" rel="noopener">TR (THK / TR Bearings)</a>
+                </div>
+                <div class="partner-card" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://www.ntn-snr.com/" target="_blank" rel="noopener">SNR</a>
+                </div>
+                <div class="partner-card" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://www.skf.com/group" target="_blank" rel="noopener">SKF</a>
+                </div>
+                <div class="partner-card" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://www.nsk.com/" target="_blank" rel="noopener">NSK / RHP</a>
+                </div>
+                <div class="partner-card" data-aos="fade-up" data-aos-delay="400">
+                    <a href="https://www.sumitomotool.com/en/industries/aerospace/for-gear-bearing" target="_blank" rel="noopener">Sumitomo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="cta">
+        <div class="container cta-content">
+            <h2>Ready to Optimize Your Operations?</h2>
+            <p>Partner with BTS today and ensure reliable supply, expert support, and top-quality industrial components.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-accent">Get a Quote</a>
+                <a href="products.html" class="btn-outline">View Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer-section">
+        <div class="container footer-container">
+            <!-- LOGO + ABOUT -->
+            <div class="footer-col footer-branding">
+                <img src="images/BTS Logo.png" alt="BTS Logo" class="footer-logo">
+                <p class="footer-desc">
+                    We invite you to contact us today to discuss your specific requirements and learn how BTS can become
+                    your trusted partner for all your industrial component needs.
                 </p>
             </div>
 
-            <!-- Vision -->
-            <div class="mvv-card">
-                <div class="mvv-icon"><i class="fa-solid fa-eye"></i></div>
-                <h3>Our Vision</h3>
-                <p>
-                    To become Zimbabwe’s most trusted industrial solutions partner, known for reliability,
-                    innovation, and ethical service delivery across all sectors.
-                </p>
+            <!-- CONTACT INFO -->
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-list">
+                    <li><strong>Address:</strong> 1171 Aspindale, Harare, Zimbabwe</li>
+                    <li><strong>Phone:</strong> +263 777 671 014 / +263 773 112 847</li>
+                    <li><strong>Email:</strong> sales.bearingtech@outlook.com</li>
+                    <li><strong>Facebook:</strong> bearingtech</li>
+                    <li><strong>Location:</strong> Aspindale, Harare</li>
+                </ul>
             </div>
 
-            <!-- Values -->
-            <div class="mvv-card">
-                <div class="mvv-icon"><i class="fa-solid fa-handshake-angle"></i></div>
-                <h3>Our Values</h3>
-                <p>
-                    Integrity, professionalism, innovation, ethical sourcing, and a commitment
-                    to building long-term partnerships with our clients.
-                </p>
+            <!-- QUICK LINKS -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#advantage">Why Choose Us</a></li>
+                </ul>
             </div>
 
-        </div>
-    </div>
-</section>
-
-<!-- OUR COMPETITIVE ADVANTAGE SECTION -->
-<section class="cycle-section">
-  <div class="container">
-    <h2 class="section-title">Our Competitive Advantage</h2>
-    <div class="section-line"></div>
-
-    <div class="cycle-container">
-
-      <div class="cycle-item">
-        <div class="cycle-circle">01</div>
-        <h3>Unmatched Quality</h3>
-        <p>We prioritize supplying reliable and long-lasting components from industry-leading brands, maximizing your equipment uptime and reducing maintenance costs.</p>
-      </div>
-
-      <div class="cycle-item">
-        <div class="cycle-circle">02</div>
-        <h3>Technical Support</h3>
-        <p>Our knowledgeable team is readily available to answer your questions, provide technical guidance, and help you find the most suitable solutions for your specific needs. Field Services capability with technically qualified and experienced professionals.</p>
-      </div>
-
-      <div class="cycle-item">
-        <div class="cycle-circle">03</div>
-        <h3>Ethical Commitment</h3>
-        <p>We operate with integrity and transparency, ensuring you receive genuine products sourced through responsible channels.</p>
-      </div>
-
-      <div class="cycle-item">
-        <div class="cycle-circle">04</div>
-        <h3>Tailored Solutions</h3>
-        <p>We work closely with you to develop personalized inventory management strategies that optimize your operations.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- OUR PARTNERS SECTION -->
-<section class="partners-section">
-  <div class="container">
-    <h2 class="section-title">Our Partners</h2>
-    <div class="section-line"></div>
-
-    <div class="partners-grid">
-      <div class="partner-card"><a href="https://www.timken.com/" target="_blank" rel="noopener">Timken</a></div>
-      <div class="partner-card"><a href="https://fptgroup.com/en/" target="_blank" rel="noopener">Fenner Power Transmission</a></div>
-      <div class="partner-card"><a href="https://www.ntnglobal.com/en/index.html" target="_blank" rel="noopener">NTN</a></div>
-      <div class="partner-card"><a href="https://www.trbearings.com/" target="_blank" rel="noopener">TR (THK / TR Bearings)</a></div>
-      <div class="partner-card"><a href="https://www.ntn-snr.com/" target="_blank" rel="noopener">SNR</a></div>
-      <div.class="partner-card"><a href="https://www.skf.com/group" target="_blank" rel="noopener">SKF</a></div>
-      <div class="partner-card"><a href="https://www.nsk.com/" target="_blank" rel="noopener">NSK / RHP</a></div>
-      <div class="partner-card"><a href="https://www.sumitomotool.com/en/industries/aerospace/for-gear-bearing" target="_blank" rel="noopener">Sumitomo</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA SECTION -->
-<section class="cta-section">
-    <div class="cta-overlay"></div>
-    <div class="container cta-content">
-        <h2>Ready to Optimize Your Operations?</h2>
-        <p>Partner with BTS today and ensure reliable supply, expert support, and top-quality industrial components.</p>
-        <div class="cta-buttons">
-            <a href="contact.html" class="btn">Get a Quote</a>
-            <a href="products.html" class="btn-outline">View Products</a>
-        </div>
-    </div>
-</section>
-<!-- ================= FOOTER ================= -->
-<footer class="footer-section">
-    <div class="container footer-container">
-
-        <!-- LOGO + ABOUT -->
-        <div class="footer-col footer-branding">
-            <img src="images/BTS Logo.png" alt="BTS Logo" class="footer-logo">
-
-            <p class="footer-desc">
-                We invite you to contact us today to discuss your specific requirements and learn how BTS can become 
-                your trusted partner for all your industrial component needs.
-            </p>
+            <!-- PRODUCTS & SERVICES -->
+            <div class="footer-col">
+                <h4>Products & Services</h4>
+                <ul class="footer-list">
+                    <li><a href="products.html">Bearings</a></li>
+                    <li><a href="products.html">Seals</a></li>
+                    <li><a href="products.html">Lubricants</a></li>
+                    <li><a href="#advantage">Inventory Management</a></li>
+                    <li><a href="#advantage">Technical Support</a></li>
+                </ul>
+            </div>
         </div>
 
-        <!-- CONTACT INFO -->
-        <div class="footer-col">
-            <h4>Contact Us</h4>
-            <ul class="footer-list">
-                <li><strong>Address:</strong> 1171 Aspindale, Harare, Zimbabwe</li>
-                <li><strong>Phone:</strong> +263 777 671 014 / +263 773 112 847</li>
-                <li><strong>Email:</strong> sales.bearingtech@outlook.com</li>
-                <li><strong>Facebook:</strong> bearingtech</li>
-                <li><strong>Location:</strong> Aspindale, Harare</li>
-            </ul>
+        <!-- SOCIAL MEDIA -->
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
 
-        <!-- QUICK LINKS -->
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <ul class="footer-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="why-choose.html">Why Choose Us</a></li>
-            </ul>
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+            <p>© 2025 Bearing Tech Solutions (BTS). All Rights Reserved.</p>
         </div>
+    </footer>
 
-        <!-- PRODUCTS & SERVICES -->
-        <div class="footer-col">
-            <h4>Products & Services</h4>
-            <ul class="footer-list">
-                <li><a href="products.html">Bearings</a></li>
-                <li><a href="products.html">Seals</a></li>
-                <li><a href="products.html">Lubricants</a></li>
-                <li><a href="services.html">Inventory Management</a></li>
-                <li><a href="services.html">Technical Support</a></li>
-            </ul>
-        </div>
-
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
     </div>
 
-    <!-- SOCIAL MEDIA -->
-<div class="footer-social">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-whatsapp"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-</div>
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- COPYRIGHT -->
-    <div class="footer-bottom">
-        <p>© 2025 Bearing Tech Solutions (BTS). All Rights Reserved.</p>
-    </div>
-</footer>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
 
-     <script>
-
-      // Mobile Menu Toggle
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const nav = document.querySelector('nav');
 
-        mobileMenuBtn.addEventListener('click', () => {
+        function toggleMenu() {
             nav.classList.toggle('active');
-        });
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
 
         // Close mobile menu when clicking on a link
         const navLinks = document.querySelectorAll('nav ul li a');
@@ -1079,13 +1385,63 @@ body {
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
+            const backToTop = document.getElementById('backToTop');
+
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+
+            // Show/hide back to top button
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
         });
 
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+
+                if(count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(() => animateCounters(), 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // Trigger counter animation when stats section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            observer.observe(aboutSection);
+        }
     </script>
 </body>
 </html>

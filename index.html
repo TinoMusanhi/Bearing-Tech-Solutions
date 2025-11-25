@@ -1,9 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Bearing Tech Solutions Pvt Ltd</title>
 
     <!-- Google Fonts -->
@@ -12,1209 +12,1597 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ------------------------------------------------------------
+       THEME COLORS
+    ------------------------------------------------------------- */
+    :root {
+        --white: #ffffff;
+        --light-grey: #f2f2f2;
+        --medium-grey: #d9d9d9;
+        --dark-grey: #555555;
+        --black: #111111;
+        --primary: #1a4a6e; /* Professional blue */
+        --accent: #ff6f00; /* Accent orange */
+        --accent-light: #ff9a44; /* Lighter orange */
+    }
+
     /* ------------------------------------------------------------
-   THEME COLORS
-------------------------------------------------------------- */
-:root {
-    --white: #ffffff;
-    --light-grey: #f2f2f2;
-    --medium-grey: #d9d9d9;
-    --dark-grey: #555555;
-    --black: #111111;
-}
+       GLOBAL RESET
+    ------------------------------------------------------------- */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-/* ------------------------------------------------------------
-   GLOBAL RESET
-------------------------------------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    html {
+        scroll-behavior: smooth;
+    }
 
-body {
-    font-family: 'Inter', sans-serif;
-    color: var(--black);
-    background-color: var(--white);
-    overflow-x: hidden;
-}
+    body {
+        font-family: 'Inter', sans-serif;
+        color: var(--black);
+        background-color: var(--white);
+        overflow-x: hidden;
+        line-height: 1.6;
+    }
 
-/* Headings */
-h1, h2, h3, h4, h5 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
+    /* Headings */
+    h1, h2, h3, h4, h5 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+    }
 
-/* Global container */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
+    /* Global container */
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
 
-/* ------------------------------------------------------------
-   SECTION SPACING
-------------------------------------------------------------- */
-section {
-    padding: 80px 0;
-}
+    /* ------------------------------------------------------------
+       SECTION SPACING
+    ------------------------------------------------------------- */
+    section {
+        padding: 80px 0;
+    }
 
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        position: relative;
+    }
 
-.section-title:after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--dark-grey);
-}
+    .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 2px;
+    }
 
-.section-line {
-    width: 60px;
-    height: 3px;
-    background: var(--dark-grey);
-    margin: 0 auto 40px;
-}
+    .section-subtitle {
+        text-align: center;
+        font-size: 1.1rem;
+        color: var(--dark-grey);
+        max-width: 700px;
+        margin: 0 auto 50px;
+    }
 
-/* ------------------------------------------------------------
-   BUTTONS
-------------------------------------------------------------- */
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background-color: var(--black);
-    color: var(--white);
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all .3s ease;
-}
+    /* ------------------------------------------------------------
+       BUTTONS
+    ------------------------------------------------------------- */
+    .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        background-color: var(--primary);
+        color: var(--white);
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all .4s ease;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(26, 74, 110, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
 
-.btn:hover {
-    background-color: var(--dark-grey);
-}
+    .btn:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: all 0.6s;
+    }
 
-/* Outline button */
-.btn-outline {
-    padding: 12px 28px;
-    border: 2px solid var(--black);
-    color: var(--black);
-    background: transparent;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: .3s ease;
-}
+    .btn:hover:before {
+        left: 100%;
+    }
 
-.btn-outline:hover {
-    background: var(--black);
-    color: var(--white);
-}
+    .btn:hover {
+        background-color: #153a57;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(26, 74, 110, 0.3);
+    }
 
-/* ------------------------------------------------------------
-   NAVIGATION BAR
-------------------------------------------------------------- */
-header {
-    width: 100%;
-    background-color: var(--white);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-}
+    /* Outline button */
+    .btn-outline {
+        padding: 14px 32px;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        background: transparent;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: .4s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-}
+    .btn-outline:hover {
+        background: var(--primary);
+        color: var(--white);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(26, 74, 110, 0.2);
+    }
 
-/* Logo */
-.logo img {
-    height: 70px;
-     width: auto;
-    object-fit: contain;
-}
+    /* Accent button */
+    .btn-accent {
+        background-color: var(--accent);
+        box-shadow: 0 4px 15px rgba(255, 111, 0, 0.2);
+    }
 
-/* Desktop Menu */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
+    .btn-accent:hover {
+        background-color: #e65c00;
+        box-shadow: 0 8px 20px rgba(255, 111, 0, 0.3);
+    }
 
-nav ul li a {
-    text-decoration: none;
-    color: var(--black);
-    font-weight: 500;
-    font-size: 15px;
-}
+    /* ------------------------------------------------------------
+       NAVIGATION BAR
+    ------------------------------------------------------------- */
+    header {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
+    }
 
-/* Hover underline animation */
-nav ul li a {
-    position: relative;
-}
+    header.scrolled {
+        padding: 5px 0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
 
-nav ul li a::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: var(--black);
-    transition: width .3s ease;
-}
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        transition: all 0.4s ease;
+    }
 
-nav ul li a:hover::after {
-    width: 100%;
-}
+    header.scrolled .navbar {
+        padding: 10px 0;
+    }
 
-nav ul li a:hover {
-    color: var(--dark-grey);
-}
+    /* Logo */
+    .logo img {
+        height: 70px;
+        width: auto;
+        object-fit: contain;
+        transition: all 0.4s ease;
+    }
 
-/* Active page highlight */
-nav ul li a.active {
-    color: var(--dark-grey);
-}
+    header.scrolled .logo img {
+        height: 55px;
+    }
 
-nav ul li a.active::after {
-    width: 100%;
-}
-
-
-/* Mobile Menu Button */
-.mobile-menu-btn {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-/* ------------------------------------------------------------
-   MOBILE NAVIGATION
-------------------------------------------------------------- */
-@media(max-width: 768px) {
+    /* Desktop Menu */
     nav ul {
-        display: none;
+        list-style: none;
+        display: flex;
+        gap: 30px;
     }
 
+    nav ul li a {
+        text-decoration: none;
+        color: var(--black);
+        font-weight: 500;
+        font-size: 15px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    /* Hover underline animation */
+    nav ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: var(--accent);
+        transition: width .3s ease;
+    }
+
+    nav ul li a:hover::after {
+        width: 100%;
+    }
+
+    nav ul li a:hover {
+        color: var(--primary);
+    }
+
+    /* Active page highlight */
+    nav ul li a.active {
+        color: var(--primary);
+    }
+
+    nav ul li a.active::after {
+        width: 100%;
+        background: var(--primary);
+    }
+
+    /* Mobile Menu Button */
     .mobile-menu-btn {
-        display: block;
+        display: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: var(--black);
+        transition: all 0.3s ease;
     }
-/* Smooth mobile dropdown */
-nav ul {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .4s ease;
-}
 
-nav.active ul {
-    max-height: 300px;
-    padding: 20px 0;
-    background: var(--white);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-     }
-body {
-    padding-top: 90px; /* ensures hero section is visible */
-}
+    .mobile-menu-btn:hover {
+        color: var(--accent);
+    }
 
-     /* ------------------------------------------------------------
-   HERO SECTION
-------------------------------------------------------------- */
-.hero {
-    position: relative;
-    height: 85vh;
-    background: url('images/hero section background.png') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--white);
-}
+    /* ------------------------------------------------------------
+       MOBILE NAVIGATION
+    ------------------------------------------------------------- */
+    @media(max-width: 768px) {
+        nav ul {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            text-align: center;
+            z-index: 999;
+        }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.45);
-}
+        nav ul li {
+            margin: 10px 0;
+        }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 700px;
-}
+        .mobile-menu-btn {
+            display: block;
+        }
 
-.hero-content h1 {
-    font-size: 3rem;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
+        /* Smooth mobile dropdown */
+        nav ul {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease;
+        }
 
-.hero-content p {
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin-bottom: 30px;
-    color: #eaeaea;
-}
+        nav.active ul {
+            max-height: 400px;
+            display: flex;
+        }
+    }
 
-.hero-buttons {
-    margin-top: 20px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
+    body {
+        padding-top: 90px; /* ensures hero section is visible */
+    }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
+    header.scrolled + body {
+        padding-top: 70px;
+    }
+
+    /* ------------------------------------------------------------
+       HERO SECTION
+    ------------------------------------------------------------- */
     .hero {
-        height: 70vh;
+        position: relative;
+        height: 90vh;
+        min-height: 600px;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('images/hero section background.png') center/cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--white);
+        overflow: hidden;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 800px;
+        padding: 0 20px;
     }
 
     .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 3.5rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        animation: fadeInUp 1s ease;
     }
 
     .hero-content p {
-        font-size: 1rem;
+        font-size: 1.3rem;
+        font-weight: 300;
+        margin-bottom: 30px;
+        color: #eaeaea;
+        animation: fadeInUp 1s ease 0.2s both;
     }
 
     .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
+        margin-top: 20px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        animation: fadeInUp 1s ease 0.4s both;
     }
-}
-/* ------------------------------------------------------------
-   ABOUT SECTION (COMPANY OVERVIEW)
-------------------------------------------------------------- */
-.about {
-    padding: 100px 0;
-}
 
-.about .section-title {
-    font-size: 2.2rem;
-    text-align: center;
-    margin-bottom: 50px;
-    position: relative;
-}
+    /* Floating elements animation */
+    .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 1;
+    }
 
-.about .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 3px;
-    background: var(--dark-grey);
-    border-radius: 3px;
-}
+    .floating-element {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 15s infinite linear;
+    }
 
-.about-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
-}
+    .floating-element:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        top: 10%;
+        left: 10%;
+        animation-delay: 0s;
+    }
 
-.about-text {
-    flex: 1;
-}
+    .floating-element:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        top: 70%;
+        left: 80%;
+        animation-delay: -5s;
+    }
 
-.about-text p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--dark-grey);
-    max-width: 500px;
-}
+    .floating-element:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        top: 50%;
+        left: 5%;
+        animation-delay: -10s;
+    }
 
-/* ABOUT SECTION — FIXED CIRCLE IMAGES */
-.about-images {
-    position: relative;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    @keyframes float {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-1000px) rotate(720deg);
+            opacity: 0;
+        }
+    }
 
-/* Large circle */
-.img-large {
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-}
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-.img-large img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   /* ensures full fill */
-    object-position: center; /* centers the subject */
-}
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+        .hero {
+            height: 80vh;
+            min-height: 500px;
+        }
 
-/* Small overlapping circle */
-.img-small {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    border: 6px solid var(--white);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
 
-.img-small img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    object-position: center;
-}
+        .hero-content p {
+            font-size: 1.1rem;
+        }
 
-/* Responsive behavior */
-@media(max-width: 768px) {
+        .hero-buttons {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
 
+    /* ------------------------------------------------------------
+       ABOUT SECTION (COMPANY OVERVIEW)
+    ------------------------------------------------------------- */
+    .about {
+        padding: 100px 0;
+        background-color: var(--light-grey);
+    }
+
+    .about-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+    }
+
+    .about-text {
+        flex: 1;
+    }
+
+    .about-text p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--dark-grey);
+        max-width: 500px;
+        margin-bottom: 20px;
+    }
+
+    .about-stats {
+        display: flex;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .stat {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        display: block;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        color: var(--dark-grey);
+    }
+
+    /* ABOUT SECTION — FIXED CIRCLE IMAGES */
     .about-images {
+        position: relative;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Large circle */
+    .img-large {
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        animation: pulse 3s infinite;
+    }
+
+    .img-large img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.5s ease;
+    }
+
+    .img-large:hover img {
+        transform: scale(1.05);
+    }
+
+    /* Small overlapping circle */
+    .img-small {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        bottom: -20px;
+        right: -20px;
+        border: 6px solid var(--white);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        animation: bounce 2s infinite;
+    }
+
+    .img-small img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.5s ease;
+    }
+
+    .img-small:hover img {
+        transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(26, 74, 110, 0.4);
+        }
+        70% {
+            box-shadow: 0 0 0 15px rgba(26, 74, 110, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(26, 74, 110, 0);
+        }
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    /* Responsive behavior */
+    @media(max-width: 768px) {
+        .about-content {
+            flex-direction: column;
+        }
+
+        .about-images {
+            margin-top: 40px;
+            order: -1;
+        }
+
+        .img-large {
+            width: 250px;
+            height: 250px;
+        }
+
+        .img-small {
+            width: 130px;
+            height: 130px;
+            bottom: -30px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        .about-stats {
+            justify-content: center;
+        }
+    }
+
+    /* ------------------------------------------------------------
+       SERVICES SECTION - Full-width background with 1-row cards
+    ------------------------------------------------------------- */
+    .services-section {
+        position: relative;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat fixed;
+        padding: 100px 0;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 cards in one row */
+        gap: 30px;
+    }
+
+    .service-card {
+        background: rgba(255,255,255,0.95);
+        color: #1a1a1a;
+        padding: 35px 25px 25px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        text-align: center;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+
+    .service-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .service-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        opacity: 0.1;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    .service-icon {
+        font-size: 3rem;
+        color: var(--accent);
+        margin-bottom: 15px;
+        transition: transform 0.4s ease;
+    }
+
+    .service-card:hover .service-icon {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .service-card h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    .service-card p {
+        color: #333;
+        line-height: 1.6;
+        font-size: 1rem;
+    }
+
+    /* Responsive for tablets & mobile */
+    @media (max-width: 1200px) {
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ------------------------------------------------------------
+       PRODUCT GRID
+    ------------------------------------------------------------- */
+    .products-section {
+        padding: 100px 0;
+        background-color: var(--light-grey);
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 30px;
         margin-top: 40px;
     }
 
-    .img-large {
-        width: 250px;
-        height: 250px;
+    .product-card {
+        background: var(--white);
+        border-radius: 12px;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        transition: .4s ease;
+        position: relative;
     }
 
-    .img-small {
-        width: 130px;
-        height: 130px;
-        bottom: -30px;
-        right: 50%;
-        transform: translateX(50%);
+    .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 25px rgba(0,0,0,0.15);
     }
-}
-/* ------------------------------------------------------------
-   SERVICES SECTION - Full-width background with 1-row cards
-------------------------------------------------------------- */
-.services-section {
-    position: relative;
-    background: url('https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
-    padding: 100px 0;
-    color: #fff;
-    overflow: hidden;
-}
 
-.services-section .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.35); /* semi-transparent dark overlay */
-    z-index: 1;
-}
-
-.services-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.section-line {
-    width: 80px;
-    height: 4px;
-    background: #ff6f00;
-    margin: 0 auto 50px;
-    border-radius: 2px;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 cards in one row */
-    gap: 30px;
-}
-
-.service-card {
-    background: rgba(255,255,255,0.95); /* slightly transparent white card */
-    color: #1a1a1a;
-    padding: 35px 25px 25px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    position: relative;
-    overflow: hidden;
-    transform: translateY(40px) scale(0.95);
-    opacity: 0;
-    animation: fadeUpScale 0.8s ease forwards;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px) scale(1);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
-
-.service-card:nth-child(2) { animation-delay: .2s; }
-.service-card:nth-child(3) { animation-delay: .4s; }
-.service-card:nth-child(4) { animation-delay: .6s; }
-
-.service-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    opacity: 0.1;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-}
-
-.service-icon {
-    font-size: 3rem;
-    color: #f9c196;
-    margin-bottom: 15px;
-}
-
-.service-card h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-
-.service-card p {
-    color: #333;
-    line-height: 1.6;
-    font-size: 1rem;
-}
-
-@keyframes fadeUpScale {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+    .product-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
     }
-}
 
-/* Responsive for tablets & mobile */
-@media (max-width: 1200px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .product-card:hover::after {
+        transform: scaleX(1);
     }
-}
 
-@media (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: 1fr;
+    .product-image {
+        width: 100%;
+        height: 180px;
+        overflow: hidden;
+        position: relative;
     }
-}
-/* ------------------------------------------------------------
-   PRODUCT GRID
-------------------------------------------------------------- */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
 
-.product-card {
-    background: var(--white);
-    border-radius: 12px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    transition: .3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-}
-
-.product-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.product-card h3 {
-    margin: 15px 0 5px;
-    font-weight: 600;
-}
-
-.product-card p {
-    color: var(--dark-grey);
-    margin-bottom: 20px;
-}
-
-/* ------------------------------------------------------------
-   WHY BTS SECTION
-------------------------------------------------------------- */
-.why-bts-section {
-    position: relative;
-    background: url('https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat; /* same image as services */
-    background-attachment: fixed; /* keeps background fixed while section scrolls */
-    background-size: cover;
-    background-position: center;
-    padding: 80px 0;
-}
-
-.why-bts-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.45); /* subtle transparent overlay for readability */
-    z-index: 1;
-}
-
-.why-bts-section .container {
-    position: relative;
-    z-index: 2;
-    color: #fff; /* text color for visibility */
-}
-
-/* Timeline */
-.why-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.why-timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 45px;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(to bottom, #ff6f00, #999);
-    border-radius: 2px;
-}
-
-/* Individual Step */
-.why-step {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    position: relative;
-}
-
-.step-indicator {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #ff6f00 0%, #999 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 700;
-    flex-shrink: 0;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    z-index: 2;
-}
-
-.step-content {
-    flex-grow: 1;
-    background: rgba(0, 0, 0, 0.35); /* slightly darker glass for better contrast */
-    backdrop-filter: blur(10px);
-    padding: 24px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-}
-
-.step-content:hover {
-    background: rgba(0, 0, 0, 0.45);
-    transform: translateX(10px);
-}
-
-.step-content h3 {
-    color: #fff; /* full white for headings */
-    margin-bottom: 12px;
-}
-
-.step-content p {
-    color: rgba(255, 255, 255, 0.9); /* bright white for paragraph */
-    line-height: 1.7;
-}
-
-/* Icon */
-.why-icon {
-    font-size: 2rem;
-    color: #ff6f00;
-    margin-bottom: 10px;
-}
-
-/* ------------------------------------------------------------
-   CTA SECTION
-------------------------------------------------------------- */
-.cta-section {
-    position: relative;
-    background: url('images/Why_choose_us.jpg') center/cover no-repeat;
-    background-attachment: fixed; /* fixed background for parallax effect */
-    padding: 100px 0;
-    text-align: center;
-    overflow: hidden;
-    color: #fff;
-}
-
-.cta-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.55); /* subtle dark overlay for contrast */
-    z-index: 1;
-}
-
-.cta-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: auto;
-}
-
-.cta-content h2 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.cta-content p {
-    font-size: 1.2rem;
-    margin-bottom: 35px;
-    line-height: 1.6;
-    color: #f5f5f5;
-}
-
-.cta-buttons a {
-    margin: 0 15px;
-    padding: 15px 35px;
-    font-size: 1rem;
-}
-
-.cta-buttons .btn {
-    background-color: #ff6f00; /* your accent orange */
-    color: #fff;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.cta-buttons .btn:hover {
-    background-color: #e65c00;
-}
-
-.cta-buttons .btn-outline {
-    border: 2px solid #ff6f00;
-    color: #ff6f00;
-    background: transparent;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.cta-buttons .btn-outline:hover {
-    background-color: #ff6f00;
-    color: #fff;
-}
-
-/* ===============================================
-   FOOTER SECTION (White, Modern, Clean)
-================================================ */
-.footer-section {
-    background: #ffffff;
-    padding: 60px 0 20px;
-    border-top: 1px solid #e5e5e5;
-    color: #333;
-    font-family: "Poppins", sans-serif;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr 1fr;
-    gap: 40px;
-}
-
-.footer-logo {
-    width: 140px;
-    margin-bottom: 15px;
-}
-
-.footer-desc {
-    color: #555;
-    line-height: 1.7;
-    font-size: 0.95rem;
-}
-
-.footer-col h4 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #222;
-    position: relative;
-}
-
-.footer-col h4::after {
-    content: "";
-    width: 40px;
-    height: 3px;
-    background: #ff6f00;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    border-radius: 2px;
-}
-
-.footer-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-list li {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    color: #555;
-}
-
-.footer-list a {
-    color: #444;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-list a:hover {
-    color: #ff6f00;
-}
-/* ===============================================
-   SOCIAL MEDIA ICONS
-================================================ */
-.footer-social {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-.footer-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    margin: 0 8px;
-    background: #ff6f00;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.footer-social a:hover {
-    background: #1a4a6e;  /* theme teal/dark blue */
-    color: #fff;
-    transform: translateY(-5px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}
-
-
-/* COPYRIGHT AREA */
-.footer-bottom {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 15px;
-    border-top: 1px solid #ddd;
-}
-
-.footer-bottom p {
-    font-size: 0.85rem;
-    color: #666;
-}
-
-/* Responsive */
-@media(max-width: 900px) {
-    .footer-container {
-        grid-template-columns: 1fr 1fr;
+    .product-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
     }
-}
 
-@media(max-width: 600px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: left;
+    .product-card:hover img {
+        transform: scale(1.05);
     }
-}
 
-/* Responsive adjustments */
-@media(max-width: 768px) {
-    .cta-content h2 {
-        font-size: 2rem;
+    .product-card h3 {
+        margin: 15px 0 5px;
+        font-weight: 600;
+        color: var(--primary);
     }
-    .cta-content p {
-        font-size: 1rem;
+
+    .product-card p {
+        color: var(--dark-grey);
+        margin-bottom: 20px;
+        padding: 0 15px;
     }
-    .cta-buttons {
+
+    /* ------------------------------------------------------------
+       WHY BTS SECTION
+    ------------------------------------------------------------- */
+    .why-bts-section {
+        position: relative;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat fixed;
+        padding: 100px 0;
+    }
+
+    /* Timeline */
+    .why-timeline {
         display: flex;
         flex-direction: column;
+        gap: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .why-timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 45px;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--accent), var(--primary));
+        border-radius: 2px;
+    }
+
+    /* Individual Step */
+    .why-step {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .step-indicator {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+        flex-shrink: 0;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        z-index: 2;
+        transition: transform 0.4s ease;
+    }
+
+    .why-step:hover .step-indicator {
+        transform: scale(1.1);
+    }
+
+    .step-content {
+        flex-grow: 1;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 24px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.4s ease;
+    }
+
+    .step-content:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateX(10px);
+    }
+
+    .step-content h3 {
+        color: #fff;
+        margin-bottom: 12px;
+    }
+
+    .step-content p {
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.7;
+    }
+
+    /* Icon */
+    .why-icon {
+        font-size: 2rem;
+        color: var(--accent);
+        margin-bottom: 10px;
+        transition: transform 0.4s ease;
+    }
+
+    .step-content:hover .why-icon {
+        transform: rotate(10deg);
+    }
+
+    /* ------------------------------------------------------------
+       CTA SECTION
+    ------------------------------------------------------------- */
+    .cta-section {
+        position: relative;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/Why_choose_us.jpg') center/cover no-repeat fixed;
+        padding: 100px 0;
+        text-align: center;
+        overflow: hidden;
+        color: #fff;
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .cta-content h2 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+
+    .cta-content p {
+        font-size: 1.2rem;
+        margin-bottom: 35px;
+        line-height: 1.6;
+        color: #f5f5f5;
+    }
+
+    .cta-buttons a {
+        margin: 0 15px;
+        padding: 15px 35px;
+        font-size: 1rem;
+    }
+
+    /* ===============================================
+       FOOTER SECTION (White, Modern, Clean)
+    ================================================ */
+    .footer-section {
+        background: #ffffff;
+        padding: 60px 0 20px;
+        border-top: 1px solid #e5e5e5;
+        color: #333;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1fr;
+        gap: 40px;
+    }
+
+    .footer-logo {
+        width: 140px;
+        margin-bottom: 15px;
+    }
+
+    .footer-desc {
+        color: #555;
+        line-height: 1.7;
+        font-size: 0.95rem;
+    }
+
+    .footer-col h4 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #222;
+        position: relative;
+    }
+
+    .footer-col h4::after {
+        content: "";
+        width: 40px;
+        height: 3px;
+        background: var(--accent);
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        border-radius: 2px;
+    }
+
+    .footer-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-list li {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+        color: #555;
+    }
+
+    .footer-list a {
+        color: #444;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-list a:hover {
+        color: var(--accent);
+    }
+
+    /* ===============================================
+       SOCIAL MEDIA ICONS
+    ================================================ */
+    .footer-social {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        margin: 0 8px;
+        background: var(--accent);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .footer-social a:hover {
+        background: var(--primary);
+        color: #fff;
+        transform: translateY(-5px);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    /* COPYRIGHT AREA */
+    .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 15px;
+        border-top: 1px solid #ddd;
+    }
+
+    .footer-bottom p {
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+    /* Responsive */
+    @media(max-width: 900px) {
+        .footer-container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media(max-width: 600px) {
+        .footer-container {
+            grid-template-columns: 1fr;
+            text-align: left;
+        }
+    }
+
+    /* Responsive adjustments */
+    @media(max-width: 768px) {
+        .cta-content h2 {
+            font-size: 2rem;
+        }
+        .cta-content p {
+            font-size: 1rem;
+        }
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .why-step {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .why-timeline::before {
+            left: 25px;
+        }
+    }
+
+    /* Team Section */
+    .team-section {
+        padding: 100px 0;
+        background-color: var(--white);
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .team-member {
+        text-align: center;
+        transition: transform 0.4s ease;
+    }
+
+    .team-member:hover {
+        transform: translateY(-10px);
+    }
+
+    .member-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 20px;
+        border: 5px solid var(--light-grey);
+        transition: all 0.4s ease;
+    }
+
+    .team-member:hover .member-photo {
+        border-color: var(--accent);
+    }
+
+    .member-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .team-member:hover .member-photo img {
+        transform: scale(1.05);
+    }
+
+    .member-info h3 {
+        margin-bottom: 5px;
+        color: var(--primary);
+    }
+
+    .member-info p {
+        color: var(--dark-grey);
+        font-style: italic;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+        padding: 100px 0;
+        background-color: var(--light-grey);
+    }
+
+    .testimonials-slider {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .testimonial {
+        background: var(--white);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        text-align: center;
+        margin: 0 20px;
+        transition: all 0.4s ease;
+    }
+
+    .testimonial:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .testimonial-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--dark-grey);
+        margin-bottom: 20px;
+        font-style: italic;
+        position: relative;
+    }
+
+    .testimonial-text::before,
+    .testimonial-text::after {
+        content: '"';
+        font-size: 3rem;
+        color: var(--accent);
+        opacity: 0.3;
+        position: absolute;
+    }
+
+    .testimonial-text::before {
+        top: -20px;
+        left: -10px;
+    }
+
+    .testimonial-text::after {
+        bottom: -40px;
+        right: -10px;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         gap: 15px;
     }
-}
 
+    .author-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .why-step {
-        flex-direction: column;
-        align-items: flex-start;
+    .author-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
-    .why-timeline::before {
-        left: 25px;
+
+    .author-info h4 {
+        margin-bottom: 5px;
+        color: var(--primary);
     }
-}
-  </style>
+
+    .author-info p {
+        color: var(--dark-grey);
+        font-size: 0.9rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--accent);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 999;
+        box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
+    }
+
+    .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background: var(--primary);
+        transform: translateY(-5px);
+    }
+    </style>
 </head>
-<body> 
+<body>
 
     <header>
-    <div class="container navbar">
+        <div class="container navbar">
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="images/BTS Logo.png" alt="Bearing Tech Solutions Logo">
+            </div>
 
-        <!-- LOGO -->
-        <div class="logo">
-            <img src="images/BTS Logo.png" alt="Bearing Tech Solutions Logo">
+            <!-- NAV LINKS -->
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Icon -->
+            <div class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
         </div>
 
-        <!-- NAV LINKS -->
-        <nav id="navMenu">
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container hero-content">
+            <h1>Reliable Industrial Components for Every Sector</h1>
+            <p>Your trusted partner in bearings, power transmission parts, seals, and engineering supplies.</p>
 
-        <!-- Mobile Icon -->
-        <div class="mobile-menu-btn" onclick="toggleMenu()">
-            <i class="fa-solid fa-bars"></i>
+            <div class="hero-buttons">
+                <a href="products.html" class="btn btn-accent">View Products</a>
+                <a href="contact.html" class="btn-outline">Get a Quote</a>
+            </div>
         </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- HERO SECTION -->
-<section class="hero">
-    <div class="hero-overlay"></div>
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container">
+            <!-- Section Title -->
+            <h2 class="section-title">Company Overview</h2>
+            <p class="section-subtitle">With years of experience and dedication to quality, we've become a trusted name in industrial solutions</p>
 
-    <div class="container hero-content">
-        <h1>Reliable Industrial Components for Every Sector</h1>
-        <p>Your trusted partner in bearings, power transmission parts, seals, and engineering supplies.</p>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <p>
+                        BEARING TECH SOLUTIONS (BTS) PVT LTD is a leading supplier of industrial components
+                        and solutions based in Aspindale, Harare, Zimbabwe. We are committed to providing
+                        our clients with exceptional service, top-tier products, and expert technical support.
+                    </p>
+                    <p>
+                        Our team of experienced professionals understands the unique challenges faced by
+                        industries in Zimbabwe and across the region. We work closely with our clients to
+                        provide tailored solutions that maximize efficiency and minimize downtime.
+                    </p>
 
-        <div class="hero-buttons">
-            <a href="products.html" class="btn">View Products</a>
-            <a href="contact.html" class="btn-outline">Get a Quote</a>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-count="15">0</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="500">0</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="1000">0</span>
+                            <span class="stat-label">Products</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-images" data-aos="fade-left">
+                    <div class="img-large">
+                        <img src="images/p1_About_Section.png" alt="About BTS">
+                    </div>
+                    <div class="img-small">
+                        <img src="images/p2_About_Section.png" alt="Industrial Components">
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
- <!-- ABOUT SECTION -->
-<section class="about">
-    <div class="container">
+    </section>
 
-        <!-- Section Title -->
-        <h2 class="section-title">Company Overview</h2>
+    <!-- SERVICES SECTION -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive solutions tailored to your industrial needs</p>
 
-        <div class="about-content">
-            
-            <div class="about-text">
-                <p>
-                    BEARING TECH SOLUTIONS (BTS) PVT LTD is a leading supplier of industrial components 
-                    and solutions based in Aspindale, Harare, Zimbabwe. We are committed to providing 
-                    our clients with exceptional service, top-tier products, and expert technical support.
-                </p>
-            </div>
-
-            <div class="about-images">
-                <div class="img-large">
-                    <img src="images/p1_About_Section.png" alt="About BTS">
-                </div>
-                <div class="img-small">
-                    <img src="images/p2_About_Section.png" alt="Industrial Components">
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- SERVICES SECTION -->
-<section class="services-section">
-    <div class="overlay"></div> <!-- Semi-transparent overlay -->
-    <div class="container">
-        <h2 class="section-title">Our Services</h2>
-        <div class="section-line"></div>
-
-        <div class="services-grid">
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-cogs"></i>
-                </div>
-                <span class="service-number">01</span>
-                <h3>Technical Expertise</h3>
-                <p>
-                    Our team and partners have deep technical knowledge. We help you with
-                    product selection, applications, troubleshooting, and achieving optimal performance.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <span class="service-number">02</span>
-                <h3>Ethical Sourcing</h3>
-                <p>
-                    All items are sourced strictly from reputable, authorized distributors
-                    to guarantee authenticity and reliability.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-boxes"></i>
-                </div>
-                <span class="service-number">03</span>
-                <h3>Consignment Stock</h3>
-                <p>
-                    Reduce upfront costs by keeping critical components available on-site.
-                    We manage stock levels so you always have essential parts.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-industry"></i>
-                </div>
-                <span class="service-number">04</span>
-                <h3>Vendor Managed Inventory (VMI)</h3>
-                <p>
-                    BTS proactively manages your inventory to ensure the right parts
-                    are available at the right time — minimizing downtime.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- PRODUCTS SECTION -->
-<section class="products-section">
-    <div class="container">
-        <h2 class="section-title">Our Product Range</h2>
-        <div class="section-line"></div>
-
-        <div class="products-grid">
-
-            <div class="product-card">
-                <img src="images/BEARINGS.png" alt="Bearings">
-                <h3>Bearings</h3>
-                <p>NSK, NTN, SKF, Timken</p>
-            </div>
-
-            <div class="product-card">
-                <img src="images/POWER_TRANSMISSION.png" alt="Power Transmission">
-                <h3>Power Transmission</h3>
-                <p>Fenner belts, pulleys, chains & drives</p>
-            </div>
-
-            <div class="product-card">
-                <img src="images/CONVEYOR BELTING.png" alt="Conveyor Belting">
-                <h3>Conveyor Belting</h3>
-                <p>Belting, joining solutions & accessories</p>
-            </div>
-
-            <div class="product-card">
-                <img src="images/MOTORS_&_DRIVES.png" alt="Motors">
-                <h3>Electric & Geared Motors</h3>
-                <p>Electric motors, geared units, VSDs</p>
-            </div>
-
-            <div class="product-card">
-                <img src="images/SEALS AND GASKETS.png" alt="Seals">
-                <h3>Oil Seals & Gaskets</h3>
-                <p>Rubber seals, gaskets, insertion rubber</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- WHY CHOOSE BTS SECTION -->
-<section class="why-bts-section">
-    <div class="container">
-        <h2 class="section-title">Why Choose BTS?</h2>
-        <div class="section-line"></div>
-
-        <div class="why-timeline">
-
-            <div class="why-step">
-                <div class="step-indicator">01</div>
-                <div class="step-content">
-                    <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Trusted Supplier</h3>
-                    <p>Partnering with BTS ensures a reliable supplier that delivers exceptional value every time.</p>
-                </div>
-            </div>
-
-            <div class="why-step">
-                <div class="step-indicator">02</div>
-                <div class="step-content">
-                    <div class="why-icon"><i class="fas fa-cogs"></i></div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <span class="service-number">01</span>
                     <h3>Technical Expertise</h3>
-                    <p>Our team offers unmatched technical expertise to help your operations run smoothly and efficiently.</p>
+                    <p>
+                        Our team and partners have deep technical knowledge. We help you with
+                        product selection, applications, troubleshooting, and achieving optimal performance.
+                    </p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <span class="service-number">02</span>
+                    <h3>Ethical Sourcing</h3>
+                    <p>
+                        All items are sourced strictly from reputable, authorized distributors
+                        to guarantee authenticity and reliability.
+                    </p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <span class="service-number">03</span>
+                    <h3>Consignment Stock</h3>
+                    <p>
+                        Reduce upfront costs by keeping critical components available on-site.
+                        We manage stock levels so you always have essential parts.
+                    </p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <span class="service-number">04</span>
+                    <h3>Vendor Managed Inventory (VMI)</h3>
+                    <p>
+                        BTS proactively manages your inventory to ensure the right parts
+                        are available at the right time — minimizing downtime.
+                    </p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="why-step">
-                <div class="step-indicator">03</div>
-                <div class="step-content">
-                    <div class="why-icon"><i class="fas fa-boxes"></i></div>
-                    <h3>Comprehensive Product Range</h3>
-                    <p>We provide a wide range of high-quality products to meet your industrial needs.</p>
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Product Range</h2>
+            <p class="section-subtitle">Quality components from trusted manufacturers</p>
+
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-image">
+                        <img src="images/BEARINGS.png" alt="Bearings">
+                    </div>
+                    <h3>Bearings</h3>
+                    <p>NSK, NTN, SKF, Timken</p>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-image">
+                        <img src="images/POWER_TRANSMISSION.png" alt="Power Transmission">
+                    </div>
+                    <h3>Power Transmission</h3>
+                    <p>Fenner belts, pulleys, chains & drives</p>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-image">
+                        <img src="images/CONVEYOR BELTING.png" alt="Conveyor Belting">
+                    </div>
+                    <h3>Conveyor Belting</h3>
+                    <p>Belting, joining solutions & accessories</p>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="product-image">
+                        <img src="images/MOTORS_&_DRIVES.png" alt="Motors">
+                    </div>
+                    <h3>Electric & Geared Motors</h3>
+                    <p>Electric motors, geared units, VSDs</p>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="product-image">
+                        <img src="images/SEALS AND GASKETS.png" alt="Seals">
+                    </div>
+                    <h3>Oil Seals & Gaskets</h3>
+                    <p>Rubber seals, gaskets, insertion rubber</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="why-step">
-                <div class="step-indicator">04</div>
-                <div class="step-content">
-                    <div class="why-icon"><i class="fas fa-industry"></i></div>
-                    <h3>Flexible Inventory</h3>
-                    <p>Our inventory management solutions ensure you always have the right parts at the right time.</p>
+    <!-- WHY CHOOSE BTS SECTION -->
+    <section class="why-bts-section" id="why-bts">
+        <div class="container">
+            <h2 class="section-title">Why Choose BTS?</h2>
+            <p class="section-subtitle">Discover what sets us apart from the competition</p>
+
+            <div class="why-timeline">
+                <div class="why-step" data-aos="fade-right">
+                    <div class="step-indicator">01</div>
+                    <div class="step-content">
+                        <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Trusted Supplier</h3>
+                        <p>Partnering with BTS ensures a reliable supplier that delivers exceptional value every time.</p>
+                    </div>
+                </div>
+
+                <div class="why-step" data-aos="fade-left">
+                    <div class="step-indicator">02</div>
+                    <div class="step-content">
+                        <div class="why-icon"><i class="fas fa-cogs"></i></div>
+                        <h3>Technical Expertise</h3>
+                        <p>Our team offers unmatched technical expertise to help your operations run smoothly and efficiently.</p>
+                    </div>
+                </div>
+
+                <div class="why-step" data-aos="fade-right">
+                    <div class="step-indicator">03</div>
+                    <div class="step-content">
+                        <div class="why-icon"><i class="fas fa-boxes"></i></div>
+                        <h3>Comprehensive Product Range</h3>
+                        <p>We provide a wide range of high-quality products to meet your industrial needs.</p>
+                    </div>
+                </div>
+
+                <div class="why-step" data-aos="fade-left">
+                    <div class="step-indicator">04</div>
+                    <div class="step-content">
+                        <div class="why-icon"><i class="fas fa-industry"></i></div>
+                        <h3>Flexible Inventory</h3>
+                        <p>Our inventory management solutions ensure you always have the right parts at the right time.</p>
+                    </div>
+                </div>
+
+                <div class="why-step" data-aos="fade-right">
+                    <div class="step-indicator">05</div>
+                    <div class="step-content">
+                        <div class="why-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Exceptional Support</h3>
+                        <p>We offer continuous support and guidance to make sure your operations are always optimized.</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="why-step">
-                <div class="step-indicator">05</div>
-                <div class="step-content">
-                    <div class="why-icon"><i class="fas fa-handshake"></i></div>
-                    <h3>Exceptional Support</h3>
-                    <p>We offer continuous support and guidance to make sure your operations are always optimized.</p>
-                </div>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="cta">
+        <div class="container cta-content">
+            <h2>Ready to Optimize Your Operations?</h2>
+            <p>Partner with BTS today and ensure reliable supply, expert support, and top-quality industrial components.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-accent">Get a Quote</a>
+                <a href="products.html" class="btn-outline">View Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer-section">
+        <div class="container footer-container">
+            <!-- LOGO + ABOUT -->
+            <div class="footer-col footer-branding">
+                <img src="images/BTS Logo.png" alt="BTS Logo" class="footer-logo">
+
+                <p class="footer-desc">
+                    We invite you to contact us today to discuss your specific requirements and learn how BTS can become
+                    your trusted partner for all your industrial component needs.
+                </p>
             </div>
 
-        </div>
-    </div>
-</section>
-<!-- CTA SECTION -->
-<section class="cta-section">
-    <div class="cta-overlay"></div>
-    <div class="container cta-content">
-        <h2>Ready to Optimize Your Operations?</h2>
-        <p>Partner with BTS today and ensure reliable supply, expert support, and top-quality industrial components.</p>
-        <div class="cta-buttons">
-            <a href="contact.html" class="btn">Get a Quote</a>
-            <a href="products.html" class="btn-outline">View Products</a>
-        </div>
-    </div>
-</section>
-<!-- ================= FOOTER ================= -->
-<footer class="footer-section">
-    <div class="container footer-container">
+            <!-- CONTACT INFO -->
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-list">
+                    <li><strong>Address:</strong> 1171 Aspindale, Harare, Zimbabwe</li>
+                    <li><strong>Phone:</strong> +263 777 671 014 / +263 773 112 847</li>
+                    <li><strong>Email:</strong> sales.bearingtech@outlook.com</li>
+                    <li><strong>Facebook:</strong> bearingtech</li>
+                    <li><strong>Location:</strong> Aspindale, Harare</li>
+                </ul>
+            </div>
 
-        <!-- LOGO + ABOUT -->
-        <div class="footer-col footer-branding">
-            <img src="images/BTS Logo.png" alt="BTS Logo" class="footer-logo">
+            <!-- QUICK LINKS -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#why-bts">Why Choose Us</a></li>
+                </ul>
+            </div>
 
-            <p class="footer-desc">
-                We invite you to contact us today to discuss your specific requirements and learn how BTS can become 
-                your trusted partner for all your industrial component needs.
-            </p>
-        </div>
-
-        <!-- CONTACT INFO -->
-        <div class="footer-col">
-            <h4>Contact Us</h4>
-            <ul class="footer-list">
-                <li><strong>Address:</strong> 1171 Aspindale, Harare, Zimbabwe</li>
-                <li><strong>Phone:</strong> +263 777 671 014 / +263 773 112 847</li>
-                <li><strong>Email:</strong> sales.bearingtech@outlook.com</li>
-                <li><strong>Facebook:</strong> bearingtech</li>
-                <li><strong>Location:</strong> Aspindale, Harare</li>
-            </ul>
+            <!-- PRODUCTS & SERVICES -->
+            <div class="footer-col">
+                <h4>Products & Services</h4>
+                <ul class="footer-list">
+                    <li><a href="products.html">Bearings</a></li>
+                    <li><a href="products.html">Seals</a></li>
+                    <li><a href="products.html">Lubricants</a></li>
+                    <li><a href="#services">Inventory Management</a></li>
+                    <li><a href="#services">Technical Support</a></li>
+                </ul>
+            </div>
         </div>
 
-        <!-- QUICK LINKS -->
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <ul class="footer-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="why-choose.html">Why Choose Us</a></li>
-            </ul>
+        <!-- SOCIAL MEDIA -->
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
 
-        <!-- PRODUCTS & SERVICES -->
-        <div class="footer-col">
-            <h4>Products & Services</h4>
-            <ul class="footer-list">
-                <li><a href="products.html">Bearings</a></li>
-                <li><a href="products.html">Seals</a></li>
-                <li><a href="products.html">Lubricants</a></li>
-                <li><a href="services.html">Inventory Management</a></li>
-                <li><a href="services.html">Technical Support</a></li>
-            </ul>
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+            <p>© 2025 Bearing Tech Solutions (BTS) . All Rights Reserved.</p>
         </div>
+    </footer>
 
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
     </div>
 
-    <!-- SOCIAL MEDIA -->
-<div class="footer-social">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-whatsapp"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-</div>
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- COPYRIGHT -->
-    <div class="footer-bottom">
-        <p>© 2025 Bearing Tech Solutions (BTS). All Rights Reserved.</p>
-    </div>
-</footer>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
 
-     <script>
-
-      // Mobile Menu Toggle
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const nav = document.querySelector('nav');
 
-        mobileMenuBtn.addEventListener('click', () => {
+        function toggleMenu() {
             nav.classList.toggle('active');
-        });
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
 
         // Close mobile menu when clicking on a link
         const navLinks = document.querySelectorAll('nav ul li a');
@@ -1227,13 +1615,82 @@ body {
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
+            const backToTop = document.getElementById('backToTop');
+
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+
+            // Show/hide back to top button
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
         });
 
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+
+                if(count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(() => animateCounters(), 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // Trigger counter animation when stats section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            observer.observe(aboutSection);
+        }
+
+        // Simple testimonial slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Initialize
+        showTestimonial(0);
     </script>
 </body>
 </html>
